@@ -1,0 +1,79 @@
+/*B-fline*/
+
+/*Code injected by: Rating-AlterStyle*/
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+/*Code injected by: Rating-AlterStyle*/
+
+
+body {
+  padding-top: 3.5rem;
+}
+
+img{
+	max-width: 100%;
+    max-height: 100%;
+}
+
+a{
+	text-decoration:none;
+}
+
+a:hover{
+	text-decoration:none;
+	}
+
+/*B-lline*/
+
+/*Code injected by: ListOfProducts-AlterStyle*/
+.box_image{
+	padding: 30px;
+	text-align:center;
+}
+
+.pimage{
+	max-height:200px;
+}
+
+.caption{
+	text-align: center;
+	font-weight: bold;
+}
+/*Code injected by: ListOfProducts-AlterStyle*/
+
+
+/*Code injected by: Rating-AlterStyle2*/
+fieldset, label { margin: 0; padding: 0; }
+
+.rating { 
+  border: none;
+  float: left;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+/*Code injected by: Rating-AlterStyle2*/
