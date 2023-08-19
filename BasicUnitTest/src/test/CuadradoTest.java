@@ -7,7 +7,7 @@ import org.junit.Test;
 import main.Cuadrado;
 
 public class CuadradoTest {
-	
+
 	@Test
 	public void testCalcularAreaCuadrado() {
 		double lado = 5.0;
