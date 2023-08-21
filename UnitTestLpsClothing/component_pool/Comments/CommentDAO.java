@@ -1,46 +1,53 @@
 package models;
 
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.mysql.jdbc.Connection;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
-import db.DB;
+import models.Comment;
 
-public class CommentDAO {
-	public static java.sql.Statement st = null;
-	public static java.sql.PreparedStatement ps = null;
-	public static java.sql.ResultSet rs = null;
-	public static Connection conn = null;
-	
-	public static ArrayList<Comment> getCommentsByPID(int pid){
-	    ArrayList<Comment> comments = new ArrayList<Comment>();
-	    try {
-	    	conn = DB.getConexion();
-	    	st = conn.createStatement();
-	        rs = st.executeQuery("SELECT * FROM comment WHERE product = '"+pid+"'");
-	        while (rs.next()) {
-	        	Comment commen = new Comment(rs.getInt("id"),rs.getInt("product"),rs.getString("description"),rs.getString("date"));
-	        	comments.add(commen);
-	        }
-	        rs.close();
-	    } catch (Exception e) { e.printStackTrace(); }
+public class CommentDAOTest {
 
-	    return comments;
-	}
-	
-	public static void insert(Comment c){  
-		try {
-			conn = DB.getConexion();
-			
-			st = conn.createStatement();
-	    	st.executeUpdate("INSERT INTO comment (product, description) VALUES ('"+c.getProduct()+"', '"+c.getDescription()+"');");		
-		}
-		catch(Exception e){	e.printStackTrace(); }
-		finally{
-			try { rs.close(); } catch (Exception e) { e.printStackTrace(); }
-		}
+	@Mock
+	private Connection conn;
+
+	@Mock
+	private Statement statement;
+
+	@Mock
+	private ResultSet resultSet;
+
+	private CommentDAO commentDAO;
+
+	@Before
+	public void setUp() throws Exception {
+		MockitoAnnotations.openMocks(this); // Inicializa los mocks
+
+		when(conn.createStatement()).thenReturn(statement);
+		when(statement.executeQuery(anyString())).thenReturn(resultSet);
+
+		commentDAO = new CommentDAO();
+		commentDAO.setConnection(conn);
 	}
 
-	/*B-method-zone*/
+	@Test
+	public void testGetCommentsByPID() throws Exception {
+		when(resultSet.next()).thenReturn(false);
+
+		ArrayList<Comment> comments = commentDAO.getCommentsByPID(1);
+
+		assertEquals(0, comments.size());
+	}
+
+	// Agrega más pruebas según tus necesidades
 
 }
