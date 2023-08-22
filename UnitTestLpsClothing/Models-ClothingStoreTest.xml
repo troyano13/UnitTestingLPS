@@ -27,7 +27,7 @@
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_concrete_root>
-    <concrete label="Basic views" type="concrete" selected="false" id="6">
+    <concrete label="Basic views" type="concrete" selected="true" id="6">
       <mxCell style="" parent="feature" vertex="1">
         <mxGeometry x="480" y="170" width="100" height="35" as="geometry"/>
       </mxCell>
@@ -37,7 +37,7 @@
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_concrete_root>
-    <concrete label="Database management" type="concrete" selected="false" id="49">
+    <concrete label="Database management" type="concrete" selected="true" id="49">
       <mxCell style="" parent="feature" vertex="1">
         <mxGeometry x="450" width="100" height="35" as="geometry"/>
       </mxCell>
@@ -47,7 +47,7 @@
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_concrete_root>
-    <concrete label="Demo data" type="concrete" selected="false" id="60">
+    <concrete label="Demo data" type="concrete" selected="true" id="60">
       <mxCell style="" parent="feature" vertex="1">
         <mxGeometry x="560" y="90" width="100" height="35" as="geometry"/>
       </mxCell>
@@ -97,7 +97,7 @@
         <mxGeometry y="320" width="100" height="35" as="geometry"/>
       </mxCell>
     </concrete>
-    <concrete label="Product model" type="concrete" selected="false" id="142">
+    <concrete label="Product model" type="concrete" selected="true" id="142">
       <mxCell style="" parent="feature" vertex="1">
         <mxGeometry x="260" y="490" width="100" height="35" as="geometry"/>
       </mxCell>
@@ -107,7 +107,7 @@
         <mxGeometry x="320" y="430" width="100" height="35" as="geometry"/>
       </mxCell>
     </concrete>
-    <concrete label="List of products" type="concrete" selected="false" id="144">
+    <concrete label="List of products" type="concrete" selected="true" id="144">
       <mxCell style="" parent="feature" vertex="1">
         <mxGeometry x="50" y="390" width="100" height="35" as="geometry"/>
       </mxCell>
@@ -117,7 +117,7 @@
         <mxGeometry x="130" y="440" width="100" height="35" as="geometry"/>
       </mxCell>
     </concrete>
-    <concrete label="Basic views" type="concrete" selected="true" id="205">
+    <concrete label="Basic views" type="concrete" selected="false" id="205">
       <mxCell style="" parent="feature" vertex="1">
         <mxGeometry x="500" y="400" width="100" height="35" as="geometry"/>
       </mxCell>
@@ -1403,7 +1403,7 @@
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_custom_component>
-    <file label="ProductModelTest-Product" type="file" filename="ProductModelTest/ProductModelUTest/ProductModelTest.java" destination="test/models/ProductTest.java" id="355">
+    <file label="ProductModel-ProductTest" type="file" filename="ProductModelTest/ProductModelUTest/ProductTest.java" destination="test/models/ProductTest.java" id="355">
       <mxCell style="shape=file" parent="component" vertex="1">
         <mxGeometry x="830" y="400" width="100" height="40" as="geometry"/>
       </mxCell>
@@ -1584,22 +1584,22 @@
       </mxCell>
     </rel_file_component>
     <file label="DatabaseManagement-DBTest" type="file" filename="DatabaseManagementTest/DatabaseManagementUTest/DBTest.java" destination="test/db/DBTest.java" id="373">
-      <mxCell style="shape=file" vertex="1" parent="component">
+      <mxCell style="shape=file" parent="component" vertex="1">
         <mxGeometry x="590" y="50" width="100" height="40" as="geometry"/>
       </mxCell>
     </file>
     <file label="DatabaseManagement-ConfigTest" type="file" filename="DatabaseManagementTest/DatabaseManagementUTest/ConfigTest.java" destination="test/db/ConfigTest.java" id="374">
-      <mxCell style="shape=file" vertex="1" parent="component">
+      <mxCell style="shape=file" parent="component" vertex="1">
         <mxGeometry x="700" y="150" width="100" height="40" as="geometry"/>
       </mxCell>
     </file>
     <rel_file_component type="relation" id="1.265">
-      <mxCell edge="1" parent="component" source="373" target="51">
+      <mxCell parent="component" source="373" target="51" edge="1">
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_file_component>
     <rel_file_component type="relation" id="1.266">
-      <mxCell edge="1" parent="component" source="374" target="51">
+      <mxCell parent="component" source="374" target="51" edge="1">
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_file_component>
@@ -1614,7 +1614,7 @@
         <mxGeometry x="280" y="130" width="100" height="35" as="geometry"/>
       </mxCell>
     </concrete>
-    <concrete label="Basic views" type="concrete" selected="false" id="clon6">
+    <concrete label="Basic views" type="concrete" selected="true" id="clon6">
       <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
         <mxGeometry x="280" y="200" width="100" height="35" as="geometry"/>
       </mxCell>
@@ -1649,7 +1649,7 @@
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_concrete_component>
-    <concrete label="Database management" type="concrete" selected="false" id="clon49">
+    <concrete label="Database management" type="concrete" selected="true" id="clon49">
       <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
         <mxGeometry x="280" y="20" width="100" height="35" as="geometry"/>
       </mxCell>
@@ -1664,7 +1664,7 @@
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_concrete_component>
-    <concrete label="Demo data" type="concrete" selected="false" id="clon60">
+    <concrete label="Demo data" type="concrete" selected="true" id="clon60">
       <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
         <mxGeometry x="280" y="260" width="100" height="35" as="geometry"/>
       </mxCell>
@@ -1774,7 +1774,7 @@
         <mxGeometry x="440" y="240" width="100" height="35" as="geometry"/>
       </mxCell>
     </concrete>
-    <concrete label="Product model" type="concrete" selected="false" id="clon142">
+    <concrete label="Product model" type="concrete" selected="true" id="clon142">
       <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
         <mxGeometry x="440" y="430" width="100" height="35" as="geometry"/>
       </mxCell>
@@ -1784,7 +1784,7 @@
         <mxGeometry x="280" y="560" width="100" height="35" as="geometry"/>
       </mxCell>
     </concrete>
-    <concrete label="List of products" type="concrete" selected="false" id="clon144">
+    <concrete label="List of products" type="concrete" selected="true" id="clon144">
       <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
         <mxGeometry x="440" y="290" width="100" height="35" as="geometry"/>
       </mxCell>
@@ -1844,7 +1844,7 @@
         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
     </rel_concrete_component>
-    <concrete label="Basic views" type="concrete" selected="true" id="clon205">
+    <concrete label="Basic views" type="concrete" selected="false" id="clon205">
       <mxCell style="fillColor=#DCDCDC;" parent="binding_feature_component" vertex="1">
         <mxGeometry x="440" y="360" width="100" height="35" as="geometry"/>
       </mxCell>
