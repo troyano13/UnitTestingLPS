@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CommentTest {
+public class CommentsTest {
 
     private Comment comment;
 
@@ -53,6 +53,5 @@ public class CommentTest {
         assertEquals("2023-08-13", comment.getDate());
     }
 
-    // Agrega más pruebas según sea necesario para otros constructores y métodos
 
 }

@@ -1,3 +1,5 @@
+package controllers.admin;
+
 import static org.mockito.Mockito.*;
 
 import java.io.IOException;
@@ -57,7 +59,6 @@ public class ManageUsersTest {
         manageUsersServlet.doPost(request, response);
 
         verify(response).sendRedirect("Users");
-        // Puedes agregar más aserciones aquí según lo necesario
     }
 
 

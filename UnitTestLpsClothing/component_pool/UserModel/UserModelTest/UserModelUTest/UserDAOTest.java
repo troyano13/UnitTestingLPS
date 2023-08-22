@@ -1,7 +1,5 @@
-Aquí tienes un ejemplo de cómo podrías realizar pruebas unitarias para la clase `UserDAO` utilizando JUnit y Mockito:
 
-        ```java
-        package models;
+package models;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;

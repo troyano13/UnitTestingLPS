@@ -1,4 +1,4 @@
-package test;
+package controllers.admin;
 
 import models.Comment;
 import models.CommentDAO;

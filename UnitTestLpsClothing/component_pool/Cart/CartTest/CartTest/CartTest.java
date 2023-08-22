@@ -1,3 +1,5 @@
+package controllers;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
@@ -75,6 +77,5 @@ public class CartTest {
         assertEquals(expectedIds, ids);
     }
 
-    // Agrega más pruebas según sea necesario
 
 }

@@ -1,3 +1,5 @@
+package models;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
@@ -46,6 +48,5 @@ public class CommentDAOTest {
         assertEquals(0, comments.size());
     }
 
-    // Agrega más pruebas según tus necesidades
 
 }

@@ -1,3 +1,5 @@
+package models;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -7,11 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import static org.junit.Assert.assertEquals;
 
-package models;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Test;
 
 public class ProductTest {
 
@@ -64,7 +63,6 @@ public class ProductTest {
         assertEquals(20, product.getTotal_rates());
     }
 
-    // Agrega más pruebas según sea necesario para otras funcionalidades
 
 }
 
