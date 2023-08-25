@@ -15,7 +15,6 @@ import javax.servlet.http.HttpSession;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 public class CartTest {
 
@@ -28,10 +27,10 @@ public class CartTest {
     @Before
     public void setUp() {
         cartServlet = new Cart();
-        request = Mockito.mock(HttpServletRequest.class);
-        response = Mockito.mock(HttpServletResponse.class);
-        dispatcher = Mockito.mock(RequestDispatcher.class);
-        session = Mockito.mock(HttpSession.class);
+        request = mock(HttpServletRequest.class);
+        response = mock(HttpServletResponse.class);
+        dispatcher = mock(RequestDispatcher.class);
+        session = mock(HttpSession.class);
 
         when(request.getSession()).thenReturn(session);
         when(request.getRequestDispatcher(anyString())).thenReturn(dispatcher);
@@ -44,7 +43,6 @@ public class CartTest {
 
         cartServlet.doGet(request, response);
 
-        // Agrega aserciones para verificar que los atributos se establecen correctamente
         verify(request).setAttribute(eq("title"), eq("Cart"));
         verify(request).setAttribute(eq("products"), any());
         verify(request).setAttribute(eq("qty"), eq(pincart));

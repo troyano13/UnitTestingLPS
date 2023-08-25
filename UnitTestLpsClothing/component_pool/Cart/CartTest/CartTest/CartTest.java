@@ -43,7 +43,6 @@ public class CartTest {
 
         cartServlet.doGet(request, response);
 
-        // Agrega aserciones para verificar que los atributos se establecen correctamente
         verify(request).setAttribute(eq("title"), eq("Cart"));
         verify(request).setAttribute(eq("products"), any());
         verify(request).setAttribute(eq("qty"), eq(pincart));

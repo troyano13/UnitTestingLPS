@@ -1,68 +1,47 @@
 package controllers;
 
-
-import static org.mockito.Mockito.*;
-
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-
-import controllers.ListProducts;
 import models.Product;
 import models.ProductDAO;
+/*B-import-zone*/
 
-public class ListProductsTest {
+@WebServlet(urlPatterns = {"/Products"})
+public class ListProducts extends HttpServlet {
 
-    @Mock
-    private HttpServletRequest request;
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    	
+    	RequestDispatcher view;
+    	
+    	if (request.getParameter("id") != null){
+    		String id = request.getParameter("id");
 
-    @Mock
-    private HttpServletResponse response;
-
-    @Mock
-    private RequestDispatcher requestDispatcher;
-
-    @Before
-    public void setUp() {
-        MockitoAnnotations.initMocks(this);
+            /*B-oneproduct-zone*/
+    		
+    		Product pro=ProductDAO.getProductByID(Integer.parseInt(id));          
+            request.setAttribute("title", pro.getName());
+            request.setAttribute("pro",pro);
+            request.setAttribute("id",id);
+            view = request.getRequestDispatcher("views/oneproduct.jsp");
+    		
+    	}else{     
+            request.setAttribute("title", "Products");      
+            request.setAttribute("products",ProductDAO.getProducts());
+    
+            view = request.getRequestDispatcher("views/listproducts.jsp");
+        }
+        view.forward(request, response);  
     }
 
-    @Test
-    public void testDoGetWithIdParameter() throws ServletException, IOException {
-        when(request.getParameter("id")).thenReturn("1");
-        when(request.getRequestDispatcher("views/oneproduct.jsp")).thenReturn(requestDispatcher);
-
-        Product mockedProduct = new Product();
-        mockedProduct.setName("Sample Product");
-        when(ProductDAO.getProductByID(1)).thenReturn(mockedProduct);
-
-        ListProducts listProductsServlet = new ListProducts();
-        listProductsServlet.doGet(request, response);
-
-        verify(request).setAttribute("title", "Sample Product");
-        verify(request).setAttribute("pro", mockedProduct);
-        verify(request).setAttribute("id", "1");
-        verify(requestDispatcher).forward(request, response);
-    }
-
-    @Test
-    public void testDoGetWithoutIdParameter() throws ServletException, IOException {
-        when(request.getParameter("id")).thenReturn(null);
-        when(request.getRequestDispatcher("views/listproducts.jsp")).thenReturn(requestDispatcher);
-
-        ListProducts listProductsServlet = new ListProducts();
-        listProductsServlet.doGet(request, response);
-
-        verify(request).setAttribute("title", "Products");
-        verify(requestDispatcher).forward(request, response);
-    }
+    /*B-method-zone*/
+    
+    
 }
-
-

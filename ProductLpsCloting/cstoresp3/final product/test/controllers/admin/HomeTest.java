@@ -33,12 +33,12 @@ public class HomeTest {
         when(request.getSession()).thenReturn(session);
     }
 
-    /*B-loginTest-zone*/
+   
     @Test
     public void testDoGet() throws ServletException, IOException {
-        User adminUser = new User("Admin User", "admin", "adminuser", "adminpass");
-        when(session.getAttribute("datauser")).thenReturn(adminUser);
-
+		
+		 /*B-loginTest-zone*/
+   
         RequestDispatcher dispatcher = mock(RequestDispatcher.class);
         when(request.getRequestDispatcher(anyString())).thenReturn(dispatcher);
 
