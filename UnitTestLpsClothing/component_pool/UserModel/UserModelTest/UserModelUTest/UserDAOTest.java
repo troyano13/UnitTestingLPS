@@ -41,8 +41,8 @@ public class UserDAOTest {
 
     @Test
     public void testGetOneUser() throws Exception {
-        // Simulamos el resultado de la consulta
-        when(rs.next()).thenReturn(true);
+       
+	   when(rs.next()).thenReturn(true);
         when(rs.getInt("id")).thenReturn(1);
         when(rs.getString("name")).thenReturn("John Doe");
         when(rs.getString("type")).thenReturn("admin");
@@ -51,7 +51,6 @@ public class UserDAOTest {
 
         User user = userDAO.getOneUser("johndoe", "password");
 
-        // Verificamos que se obtuvo el usuario correctamente
         assertEquals(1, user.getId());
         assertEquals("John Doe", user.getName());
         assertEquals("admin", user.getType());
@@ -61,12 +60,11 @@ public class UserDAOTest {
 
     @Test
     public void testGetOneUserNotFound() throws Exception {
-        // Simulamos que no se encuentra el usuario
+
         when(rs.next()).thenReturn(false);
 
         User user = userDAO.getOneUser("nonexistent", "password");
 
-        // Verificamos que se obtiene null cuando el usuario no se encuentra
         assertEquals(null, user);
     }
 
