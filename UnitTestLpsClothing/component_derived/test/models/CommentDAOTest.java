@@ -30,7 +30,7 @@ public class CommentDAOTest {
 
     @Before
     public void setUp() throws Exception {
-        MockitoAnnotations.openMocks(this);
+        MockitoAnnotations.openMocks(this); // Inicializa los mocks
 
         when(conn.createStatement()).thenReturn(statement);
         when(statement.executeQuery(anyString())).thenReturn(resultSet);

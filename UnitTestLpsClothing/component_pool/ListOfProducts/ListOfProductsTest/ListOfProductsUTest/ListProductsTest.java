@@ -13,7 +13,7 @@ import models.ProductDAO;
 /*B-import-zone*/
 
 @WebServlet(urlPatterns = {"/Products"})
-public class ListProducts extends HttpServlet {
+public class ListProductsTest extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
