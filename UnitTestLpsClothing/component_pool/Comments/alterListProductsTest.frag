@@ -1,20 +1,20 @@
-Fragment Comments-AlterListProducts { 
+Fragment Comments-AlterListProductsTest { 
    Action: add
    Priority: high
    FragmentationPoints: import-zone
    PointBracketsLan: java
-   Destinations: ListOfProducts/ListOfProductsTest/ListOfProductsUTest-ListProductsTest
+   Destinations: ListOfProducts-ListProductsTest
    SourceCode: [ALTERCODE-FRAG]import models.Comment;
 import models.CommentDAO;import java.util.ArrayList;
 import java.util.List; [/ALTERCODE-FRAG]
 }
 
-Fragment Comments-AlterListProducts2 { 
+Fragment Comments-AlterListProductsTest2 { 
    Action: add
    Priority: high
    FragmentationPoints: oneproduct-zone
    PointBracketsLan: java
-   Destinations: ListOfProducts/ListOfProductsTest/ListOfProductsUTest-ListProductsTest
+   Destinations: ListOfProducts-ListProductsTest
    SourceCode: [ALTERCODE-FRAG]@Test
 public void testDoGetWithIdParameterC() throws ServletException, IOException {
     when(request.getParameter("id")).thenReturn("1");
@@ -34,7 +34,7 @@ public void testDoGetWithIdParameterC() throws ServletException, IOException {
     verify(request).setAttribute("title", "Sample Product");
     verify(request).setAttribute("pro", mockedProduct);
     verify(request).setAttribute("id", "1");
-    verify(request).setAttribute("comments", mockedComments); // Verifica que se haya establecido correctamente
+    verify(request).setAttribute("comments", mockedComments); 
     verify(requestDispatcher).forward(request, response);
 } [/ALTERCODE-FRAG]
 }

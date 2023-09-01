@@ -73,25 +73,6 @@ public static ArrayList<Product> getProductsByIds(String ids){
 /*Code injected by: Cart-AlterProductDAO*/
 
 
-/*Code injected by: Rating-AlterProductDAO2*/
-public static void updateRating(Product p){  
-      try {
-         conn = DB.getConexion();
-         
-         st = conn.createStatement();
-         st.executeUpdate("UPDATE product set "
-               + " total_rates='"+p.getTotal_rates()+"',"
-               + " num_rates='"+p.getNum_rates()+"'"
-               + "  WHERE id = '"+p.getId()+"';");    
-      }
-      catch(Exception e){  e.printStackTrace(); }
-      finally{
-         try { rs.close(); } catch (Exception e) { e.printStackTrace(); }
-      }
-   }
-/*Code injected by: Rating-AlterProductDAO2*/
-
-
 /*Code injected by: ProductManagement-AlterProductDAO*/
 public static void remove(int id){  
     try {
@@ -117,6 +98,25 @@ public static void remove(int id){
     }
   }
 /*Code injected by: ProductManagement-AlterProductDAO*/
+
+
+/*Code injected by: Rating-AlterProductDAO2*/
+public static void updateRating(Product p){  
+      try {
+         conn = DB.getConexion();
+         
+         st = conn.createStatement();
+         st.executeUpdate("UPDATE product set "
+               + " total_rates='"+p.getTotal_rates()+"',"
+               + " num_rates='"+p.getNum_rates()+"'"
+               + "  WHERE id = '"+p.getId()+"';");    
+      }
+      catch(Exception e){  e.printStackTrace(); }
+      finally{
+         try { rs.close(); } catch (Exception e) { e.printStackTrace(); }
+      }
+   }
+/*Code injected by: Rating-AlterProductDAO2*/
 
 
 }

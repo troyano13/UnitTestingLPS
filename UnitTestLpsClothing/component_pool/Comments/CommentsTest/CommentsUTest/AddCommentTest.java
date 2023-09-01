@@ -30,7 +30,7 @@ public class AddCommentTest {
         commentDAO = mock(CommentDAO.class);
         dispatcher = mock(RequestDispatcher.class);
 
-        when(request.getParameter("product")).thenReturn("123"); // Cambia 123 por un valor válido
+        when(request.getParameter("product")).thenReturn("123"); 
         when(request.getParameter("description")).thenReturn("Test description");
 
         addCommentServlet.setCommentDAO(commentDAO);
@@ -43,7 +43,7 @@ public class AddCommentTest {
 
         verify(commentDAO).insert(any(Comment.class));
 
-        verify(response).sendRedirect("Products?id=123"); // Cambia 123 por el valor válido
+        verify(response).sendRedirect("Products?id=123"); 
     }
 
 

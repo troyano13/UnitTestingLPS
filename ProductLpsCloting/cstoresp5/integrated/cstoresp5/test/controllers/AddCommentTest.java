@@ -19,29 +19,41 @@ public class AddCommentTest {
     private AddComment addCommentServlet;
     private HttpServletRequest request;
     private HttpServletResponse response;
-    private CommentDAO commentDAO;
+    private CommentDAO CommentDAO;
     private RequestDispatcher dispatcher;
 
-    @Before
-    public void setUp() {
-        addCommentServlet = new AddComment();
-        request = mock(HttpServletRequest.class);
-        response = mock(HttpServletResponse.class);
-        commentDAO = mock(CommentDAO.class);
-        dispatcher = mock(RequestDispatcher.class);
+    @Test
+    public void testDofPost() throws ServletException, IOException {
+        // Mock de los objetos HttpServletRequest, HttpServletResponse y RequestDispatcher
+        HttpServletRequest request = mock(HttpServletRequest.class);
+        HttpServletResponse response = mock(HttpServletResponse.class);
+        RequestDispatcher requestDispatcher = mock(RequestDispatcher.class);
 
-        when(request.getParameter("product")).thenReturn("123"); 
-        when(request.getParameter("description")).thenReturn("Test description");
+        // Configurar el comportamiento de los métodos del request
+        when(request.getParameter("product")).thenReturn("1");
+        when(request.getParameter("description")).thenReturn("This is a comment.");
 
-        addCommentServlet.setCommentDAO(commentDAO);
-        when(request.getRequestDispatcher(anyString())).thenReturn(dispatcher);
+        // Configurar el comportamiento de request.getRequestDispatcher
+        when(request.getRequestDispatcher("views/your_redirect_page.jsp")).thenReturn(requestDispatcher);
+
+        // Crear una instancia de la clase AddComment
+        AddComment addCommentServlet = new AddComment();
+
+        // Llamar al método doPost
+        addCommentServlet.doPost(request, response);
+
+        // Verificar que CommentDAO.insert fue llamado con el comentario correcto
+        verify(CommentDAO).insert(argThat(comment -> comment.getProduct() == 1 && comment.getDescription().equals("This is a comment.")));
+
+        // Verificar que se redirige a la página esperada
+        verify(requestDispatcher).forward(request, response);
     }
 
     @Test
     public void testDoPost() throws ServletException, IOException {
         addCommentServlet.doPost(request, response);
 
-        verify(commentDAO).insert(any(Comment.class));
+        verify(CommentDAO).insert(any(Comment.class));
 
         verify(response).sendRedirect("Products?id=123"); // Cambia 123 por el valor válido
     }

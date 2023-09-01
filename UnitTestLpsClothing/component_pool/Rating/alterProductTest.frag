@@ -4,17 +4,17 @@ Fragment Rating-AlterProductTest {
    Priority: high
    FragmentationPoints: paramsTest-attribute-zone
    PointBracketsLan: java
-   Destinations: ProductModel/ProductModelTest/ProductModelUTest-ProductTest
+   Destinations: ProductModel-ProductTest
    SourceCode: [ALTERCODE-FRAG], 5, 20
 [/ALTERCODE-FRAG]
 }
 
-Fragment Rating-AlterProduct2 { 
+Fragment Rating-AlterProductTest2 { 
    Action: add
    Priority: high
    FragmentationPoints: methodTest-zone
    PointBracketsLan: java
-   Destinations: ProductModel/ProductModelTest/ProductModelUTest-ProductTest
+   Destinations: ProductModel-ProductTest
    SourceCode: [ALTERCODE-FRAG] @Test
     public void testGetNumRates() {
         assertEquals(5, product.getNum_rates());

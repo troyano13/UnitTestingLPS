@@ -13,19 +13,23 @@ import javax.servlet.http.HttpSession;
 import org.junit.Before;
 import org.junit.Test;
 
-import controllers.admin.Home;
+import controllers.admin.ManageProducts;
+import models.Product;
+import models.ProductDAO;
 import models.User;
 
-public class HomeTest {
+public class ManageProductsTest {
 
-    private Home homeServlet;
+    private ManageProducts manageProductsServlet;
     private HttpServletRequest request;
     private HttpServletResponse response;
     private HttpSession session;
 
+    /*B-loginTest-zone*/
+
     @Before
     public void setUp() {
-        homeServlet = new Home();
+        manageProductsServlet = new ManageProducts();
         request = mock(HttpServletRequest.class);
         response = mock(HttpServletResponse.class);
         session = mock(HttpSession.class);
@@ -33,7 +37,6 @@ public class HomeTest {
         when(request.getSession()).thenReturn(session);
     }
 
-    /*B-loginTest-zone*/
     @Test
     public void testDoGet() throws ServletException, IOException {
         User adminUser = new User("Admin User", "admin", "adminuser", "adminpass");
@@ -42,12 +45,24 @@ public class HomeTest {
         RequestDispatcher dispatcher = mock(RequestDispatcher.class);
         when(request.getRequestDispatcher(anyString())).thenReturn(dispatcher);
 
-        homeServlet.doGet(request, response);
+        manageProductsServlet.doGet(request, response);
 
-        verify(request).setAttribute(eq("title"), eq("Admin Panel"));
+        verify(request).setAttribute(eq("products"), any());
+        verify(request).setAttribute(eq("title"), eq("Admin Panel - Products"));
         verify(dispatcher).forward(request, response);
     }
 
+    @Test
+    public void testDoPost() throws ServletException, IOException {
+        when(request.getParameter("name")).thenReturn("New Product");
+        when(request.getParameter("description")).thenReturn("New Product Description");
+        when(request.getParameter("price")).thenReturn("100");
+        when(request.getParameter("img")).thenReturn("newproduct.jpg");
+
+        manageProductsServlet.doPost(request, response);
+
+        verify(response).sendRedirect("Products");
+    }
 
 
 }
