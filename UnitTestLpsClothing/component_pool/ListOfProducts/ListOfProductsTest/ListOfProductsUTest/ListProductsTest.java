@@ -1,47 +1,47 @@
-package controllers;
+package models;
 
-import java.io.IOException;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
-import models.Product;
-import models.ProductDAO;
-/*B-import-zone*/
 
-@WebServlet(urlPatterns = {"/Products"})
-public class ListProductsTest extends HttpServlet {
+public class ProductTest {
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    	
-    	RequestDispatcher view;
-    	
-    	if (request.getParameter("id") != null){
-    		String id = request.getParameter("id");
+	private Product product;
 
-            /*B-oneproduct-zone*/
-    		
-    		Product pro=ProductDAO.getProductByID(Integer.parseInt(id));          
-            request.setAttribute("title", pro.getName());
-            request.setAttribute("pro",pro);
-            request.setAttribute("id",id);
-            view = request.getRequestDispatcher("views/oneproduct.jsp");
-    		
-    	}else{     
-            request.setAttribute("title", "Products");      
-            request.setAttribute("products",ProductDAO.getProducts());
-    
-            view = request.getRequestDispatcher("views/listproducts.jsp");
-        }
-        view.forward(request, response);  
-    }
+	@Before
+	public void setUp() {
+		product = new Product(1, "Test Product", "Description", 100, "test.jpg"/*B-paramsTest-attribute-zone*/);
+	}
 
-    /*B-method-zone*/
-    
-    
+	@Test
+	public void testGetId() {
+		assertEquals(1, product.getId());
+	}
+
+	@Test
+	public void testGetName() {
+		assertEquals("Test Product", product.getName());
+	}
+
+	@Test
+	public void testGetDescription() {
+		assertEquals("Description", product.getDescription());
+	}
+
+	@Test
+	public void testGetPrice() {
+		assertEquals(100, product.getPrice());
+	}
+
+	@Test
+	public void testGetImg() {
+		assertEquals("test.jpg", product.getImg());
+	}
+
+	/*B-methodTest-zone*/
+
+
 }
+
+

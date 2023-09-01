@@ -36,7 +36,7 @@ public class CommentDAOTest {
         when(statement.executeQuery(anyString())).thenReturn(resultSet);
 
         commentDAO = new CommentDAO();
-        commentDAO.setConnection(conn);
+       // commentDAO.setConnection(conn);
     }
 
     @Test

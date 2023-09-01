@@ -30,13 +30,13 @@ public class CommentDAOTest {
 
     @Before
     public void setUp() throws Exception {
-        MockitoAnnotations.openMocks(this); // Inicializa los mocks
+        MockitoAnnotations.openMocks(this); 
 
         when(conn.createStatement()).thenReturn(statement);
         when(statement.executeQuery(anyString())).thenReturn(resultSet);
 
         commentDAO = new CommentDAO();
-        commentDAO.setConnection(conn);
+       // commentDAO.setConnection(conn);
     }
 
     @Test
