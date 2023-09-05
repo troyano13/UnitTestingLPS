@@ -1,7 +1,7 @@
 Fragment Rating-AlterListProductsTest { 
    Action: add
    Priority: high
-   FragmentationPoints: method-zone
+   FragmentationPoints: methodTest-zone
    PointBracketsLan: java
    Destinations: ListOfProducts-ListProductsTest
    SourceCode: [ALTERCODE-FRAG]auqi va algo

@@ -1,43 +1,55 @@
 package controllers.admin;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mockito;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession; // Importante importar HttpSession
-import java.io.IOException;
+import javax.servlet.http.HttpSession;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import models.User;
 
 public class HomeTest {
 
-    private HttpServletRequest request;
-    private HttpServletResponse response;
-    private RequestDispatcher requestDispatcher;
-    private Home servlet;
+	private Home servletHome;
+	private HttpServletRequest request;
+	private HttpServletResponse response;
+	private HttpSession session;
 
-    @Before
-    public void setUp() {
-        request = Mockito.mock(HttpServletRequest.class);
-        response = Mockito.mock(HttpServletResponse.class);
-        requestDispatcher = Mockito.mock(RequestDispatcher.class);
-        servlet = new Home();
-    }
+	@Before
+	public void setUp() {
+		servletHome = new Home();
+		request = mock(HttpServletRequest.class);
+		response = mock(HttpServletResponse.class);
+		session = mock(HttpSession.class);
+
+		when(request.getSession()).thenReturn(session);
+	}
 
     @Test
     public void testDoGet() throws ServletException, IOException {
-        HttpSession session = Mockito.mock(HttpSession.class); // Crear mock de HttpSession
-        Mockito.when(request.getRequestDispatcher("admin/home.jsp")).thenReturn(requestDispatcher);
-        Mockito.when(request.getSession()).thenReturn(session); // Establecer sesión en la solicitud
+        User user = new User(1, "test", "user", "admin", "123");
+        
+        when(session.getAttribute("datauser")).thenReturn(user);
 
-        // Configurar el comportamiento del HttpSession mock
-        Mockito.when(session.getAttribute("datauser")).thenReturn("someValue"); // Reemplaza "someValue" con el valor esperado
+		RequestDispatcher dispatcher = mock(RequestDispatcher.class);
+		when(request.getRequestDispatcher(anyString())).thenReturn(dispatcher);
 
-        servlet.doGet(request, response);
-
-        Mockito.verify(session).setAttribute("title", "Admin Panel");
-        Mockito.verify(requestDispatcher).forward(request, response);
+		servletHome.doGet(request, response);
+        
+		verify(request).setAttribute(eq("title"), eq("admin"));
+		verify(request).setAttribute(eq("user"), eq(user));
+		verify(dispatcher).forward(request, response);
+		
     }
 }

@@ -50,17 +50,7 @@ HttpSession session = request.getSession();
 		String price = request.getParameter("price");
 		String img = request.getParameter("img");
 		
-		Product p = new Product(name,desc,Integer.parseInt(price),img/*B-constructor-attribute-zone*/
-
-/*Code injected by: Rating-AlterManageProducts*/
-,0,0
-/*Code injected by: Rating-AlterManageProducts*/
-
-
-/*Code injected by: Rating-AlterManageProducts*/
-,0,0
-/*Code injected by: Rating-AlterManageProducts*/
-);
+		Product p = new Product(name,desc,Integer.parseInt(price),img,0,0);
 		ProductDAO.insert(p);
 		response.sendRedirect("Products");
 	}

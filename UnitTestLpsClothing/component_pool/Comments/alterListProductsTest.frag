@@ -1,7 +1,7 @@
 Fragment Comments-AlterListProductsTest { 
    Action: add
    Priority: high
-   FragmentationPoints: import-zone
+   FragmentationPoints: importTest-zone
    PointBracketsLan: java
    Destinations: ListOfProducts-ListProductsTest
    SourceCode: [ALTERCODE-FRAG]import models.Comment;
@@ -12,11 +12,11 @@ import java.util.List; [/ALTERCODE-FRAG]
 Fragment Comments-AlterListProductsTest2 { 
    Action: add
    Priority: high
-   FragmentationPoints: oneproduct-zone
+   FragmentationPoints: oneproductTest-zone
    PointBracketsLan: java
    Destinations: ListOfProducts-ListProductsTest
    SourceCode: [ALTERCODE-FRAG]@Test
-public void testDoGetWithIdParameterC() throws ServletException, IOException {
+public void testDoGetWithIdParameterProduct() throws ServletException, IOException {
     when(request.getParameter("id")).thenReturn("1");
     when(request.getRequestDispatcher("views/oneproduct.jsp")).thenReturn(requestDispatcher);
 

@@ -1,9 +1,14 @@
 package controllers;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,6 +28,7 @@ public class LoginTest {
     private HttpServletRequest request;
     private HttpServletResponse response;
     private HttpSession session;
+    private RequestDispatcher dispatcher;
     private User user;
 
     @Before
@@ -32,8 +38,11 @@ public class LoginTest {
         response = mock(HttpServletResponse.class);
         session = mock(HttpSession.class);
         user = mock(User.class);
+        dispatcher = mock(RequestDispatcher.class);
+
 
         when(request.getSession()).thenReturn(session);
+        when(request.getRequestDispatcher(anyString())).thenReturn(dispatcher);
     }
 
     @Test
@@ -64,12 +73,33 @@ public class LoginTest {
         verify(session).setAttribute("logged", "1");
         verify(response).sendRedirect(eq("Home"));
     }
+    
+    @Test
+    public void testDoPost() throws ServletException, IOException {
+        Map<Integer, String> pincart = new HashMap<>();
+        when(session.getAttribute("pincart")).thenReturn(pincart);
+
+        when(request.getParameter("user")).thenReturn("testuser");
+        when(request.getParameter("pass")).thenReturn("testpass");
+
+        loginServlet.doPost(request, response);
+
+       // assertEquals("2", pincart.get(123));
+        verify(session).setAttribute("user", "1");
+        verify(session).setAttribute("datauser", user);
+        verify(session).setAttribute("logged", "1");
+        verify(response).sendRedirect(eq("Home"));
+    }
 
     @Test
     public void testDoPostWithInvalidUser() throws ServletException, IOException {
         when(request.getParameter("user")).thenReturn("invaliduser");
         when(request.getParameter("pass")).thenReturn("invalidpass");
         when(UserDAO.getOneUser("invaliduser", "invalidpass")).thenReturn(null);
+
+        
+        RequestDispatcher dispatcher = mock(RequestDispatcher.class);
+		when(request.getRequestDispatcher(anyString())).thenReturn(dispatcher);
 
         loginServlet.doPost(request, response);
 

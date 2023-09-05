@@ -24,6 +24,10 @@ public class User {
 		this.pass = pass;
 	}
 
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId() {
 		return id;
 	}

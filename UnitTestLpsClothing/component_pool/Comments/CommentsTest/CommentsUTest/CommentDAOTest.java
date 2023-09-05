@@ -1,7 +1,8 @@
 package models;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.when;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,9 +14,9 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import models.Comment;
-
 public class CommentDAOTest {
+	
+	
 
     @Mock
     private Connection conn;
@@ -30,7 +31,7 @@ public class CommentDAOTest {
 
     @Before
     public void setUp() throws Exception {
-        MockitoAnnotations.openMocks(this); 
+        MockitoAnnotations.openMocks(this);
 
         when(conn.createStatement()).thenReturn(statement);
         when(statement.executeQuery(anyString())).thenReturn(resultSet);

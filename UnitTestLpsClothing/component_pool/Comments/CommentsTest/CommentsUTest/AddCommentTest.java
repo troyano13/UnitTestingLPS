@@ -1,14 +1,14 @@
 package controllers;
 
-import models.CommentDAO;
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mockito;
+import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mockito;
 
 public class AddCommentTest {
 
@@ -29,7 +29,7 @@ public class AddCommentTest {
 		AddComment addCommentServlet = new AddComment();
 
 		addCommentServlet.doPost(request, response);
-		// Mockito.verify(CommentDAO).insert(Mockito.any(Comment.class));
+		//Mockito.verify(CommentDAO).insert(Mockito.any(Comment.class));
 
 		Mockito.verify(response).sendRedirect("Products?id=1");
 	}
