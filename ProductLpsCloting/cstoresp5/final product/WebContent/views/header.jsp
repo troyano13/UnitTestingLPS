@@ -32,13 +32,6 @@
 				   </c:when>    
     			 <c:otherwise>
 		          <!--B-menu-modificator-login-->
-
-<!--Code injected by: Account-AlterHeader-->
-<li>
-		            <a class="nav-link" href="<c:url value='Account'/>">Account</a>
-		           </li>
-<!--Code injected by: Account-AlterHeader-->
-
     			    <li>
 	            <a class="nav-link" href="<c:url value='Login?logout=1'/>">Logout</a>
 	            </li>

@@ -16,14 +16,14 @@ public class ManageCommentTest {
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	private RequestDispatcher requestDispatcher;
-	private ManageComment servlet;
+	private ManageComment manageCommentController;
 
 	@Before
 	public void setUp() {
 		request = Mockito.mock(HttpServletRequest.class);
 		response = Mockito.mock(HttpServletResponse.class);
 		requestDispatcher = Mockito.mock(RequestDispatcher.class);
-		servlet = new ManageComment();
+		manageCommentController = new ManageComment();
 	}
 
 	@Test
@@ -31,7 +31,7 @@ public class ManageCommentTest {
 		Mockito.when(request.getParameter("product")).thenReturn("1");
 		Mockito.when(request.getParameter("description")).thenReturn("New Comment");
 
-		servlet.doPost(request, response);
+		manageCommentController.doPost(request, response);
 
 		Mockito.verify(request).getParameter("product");
 		Mockito.verify(request).getParameter("description");

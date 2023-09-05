@@ -11,7 +11,12 @@ public class ProductTest {
 
 	@Before
 	public void setUp() {
-		product = new Product(1, "Test Product", "Description", 100, "test.jpg"/*B-paramsTest-attribute-zone*/);
+		product = new Product(1, "Test Product", "Description", 100, "test.jpg"/*B-paramsTest-attribute-zone*/
+
+/*Code injected by: Rating-AlterProductTest*/
+, 5, 20
+/*Code injected by: Rating-AlterProductTest*/
+);
 	}
 
 	@Test
@@ -40,6 +45,24 @@ public class ProductTest {
 	}
 
 	/*B-methodTest-zone*/
+
+/*Code injected by: Rating-AlterProductTest2*/
+@Test
+    public void testGetNumRates() {
+        assertEquals(5, product.getNum_rates());
+    }
+
+    @Test
+    public void testGetTotalRates() {
+        assertEquals(20, product.getTotal_rates());
+    }
+
+    @Test
+    public void testGetRate() {
+        assertEquals(4, product.getRate());
+    }
+/*Code injected by: Rating-AlterProductTest2*/
+
 
 
 }

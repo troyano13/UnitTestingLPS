@@ -23,18 +23,18 @@
           </li>
           <!--B-menu-admin-modificator-->
 
-<!--Code injected by: CommentManagement-AlterAdminHeader-->
-<li>
-            <a class="nav-link" href="<c:url value='Comments'/>">Manage Comments</a>
-           </li>
-<!--Code injected by: CommentManagement-AlterAdminHeader-->
-
-
 <!--Code injected by: ProductManagement-AlterAdminHeader-->
 <li>
             <a class="nav-link" href="<c:url value='Products'/>">Manage Products</a>
            </li>
 <!--Code injected by: ProductManagement-AlterAdminHeader-->
+
+
+<!--Code injected by: CommentManagement-AlterAdminHeader-->
+<li>
+            <a class="nav-link" href="<c:url value='Comments'/>">Manage Comments</a>
+           </li>
+<!--Code injected by: CommentManagement-AlterAdminHeader-->
 
 
 <!--Code injected by: UserManagement-AlterAdminHeader-->

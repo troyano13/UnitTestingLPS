@@ -22,7 +22,7 @@ import models.User;
 
 public class ManageProductsTest {
 
-    private ManageProducts manageProductsServlet;
+    private ManageProducts manageProductsController;
     private HttpServletRequest request;
     private HttpServletResponse response;
     private HttpSession session;
@@ -31,7 +31,7 @@ public class ManageProductsTest {
 
     @Before
     public void setUp() {
-        manageProductsServlet = new ManageProducts();
+        manageProductsController = new ManageProducts();
         request = mock(HttpServletRequest.class);
         response = mock(HttpServletResponse.class);
         session = mock(HttpSession.class);
@@ -47,7 +47,7 @@ public class ManageProductsTest {
         RequestDispatcher dispatcher = mock(RequestDispatcher.class);
         when(request.getRequestDispatcher(anyString())).thenReturn(dispatcher);
 
-        manageProductsServlet.doGet(request, response);
+        manageProductsController.doGet(request, response);
 
         verify(request).setAttribute(eq("products"), any());
         verify(request).setAttribute(eq("title"), eq("Admin Panel - Products"));
@@ -61,7 +61,7 @@ public class ManageProductsTest {
         when(request.getParameter("price")).thenReturn("100");
         when(request.getParameter("img")).thenReturn("newproduct.jpg");
 
-        manageProductsServlet.doPost(request, response);
+        manageProductsController.doPost(request, response);
 
         verify(response).sendRedirect("Products");
     }

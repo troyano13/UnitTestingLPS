@@ -40,13 +40,6 @@
 <!--Code injected by: Login-AlterHeader-->
 
 
-<!--Code injected by: Cart-AlterHeader-->
-<li>
-            <a class="nav-link" href="<c:url value='Cart'/>">Cart</a>
-           </li>
-<!--Code injected by: Cart-AlterHeader-->
-
-
 <!--Code injected by: ListOfProducts-AlterHeader-->
 <li>
             <a class="nav-link" href="<c:url value='Products'/>">Products</a>

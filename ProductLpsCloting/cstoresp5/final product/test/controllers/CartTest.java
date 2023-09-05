@@ -1,7 +1,12 @@
 package controllers;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -18,7 +23,7 @@ import org.junit.Test;
 
 public class CartTest {
 
-    private Cart cartServlet;
+    private Cart cartController;
     private HttpServletRequest request;
     private HttpServletResponse response;
     private RequestDispatcher dispatcher;
@@ -26,7 +31,7 @@ public class CartTest {
 
     @Before
     public void setUp() {
-        cartServlet = new Cart();
+        cartController = new Cart();
         request = mock(HttpServletRequest.class);
         response = mock(HttpServletResponse.class);
         dispatcher = mock(RequestDispatcher.class);
@@ -41,7 +46,7 @@ public class CartTest {
         Map<Integer, String> pincart = new HashMap<>();
         when(session.getAttribute("pincart")).thenReturn(pincart);
 
-        cartServlet.doGet(request, response);
+        cartController.doGet(request, response);
 
         verify(request).setAttribute(eq("title"), eq("Cart"));
         verify(request).setAttribute(eq("products"), any());
@@ -57,7 +62,7 @@ public class CartTest {
         when(request.getParameter("id")).thenReturn("123");
         when(request.getParameter("qty")).thenReturn("2");
 
-        cartServlet.doPost(request, response);
+        cartController.doPost(request, response);
 
         assertEquals("2", pincart.get(123));
         verify(session).setAttribute(eq("pincart"), eq(pincart));
@@ -71,7 +76,7 @@ public class CartTest {
         pincart.put(2, "1");
         String expectedIds = "1,2";
 
-        String ids = cartServlet.getIds(pincart);
+        String ids = cartController.getIds(pincart);
 
         assertEquals(expectedIds, ids);
     }

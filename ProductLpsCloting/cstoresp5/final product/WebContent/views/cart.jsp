@@ -37,6 +37,13 @@
 
 				<!--B-payment-zone-->
 
+<!--Code injected by: OfflinePayment-AlterCart-->
+<br /><br />
+				<b>Offline payment</b><br />
+				Click <a HREF="javascript:window.print()">here</a> to print this page. Then transfer the total value to this bank account: XXX-XX-XXX-XX and send us the previous printed page including the transaction confirmation.
+<!--Code injected by: OfflinePayment-AlterCart-->
+
+
 <!--Code injected by: OnlinePayment-AlterCart-->
 <br /><br />
 				<b>Pay with PayPal</b><br />
@@ -47,13 +54,6 @@
 				<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 				</form>
 <!--Code injected by: OnlinePayment-AlterCart-->
-
-
-<!--Code injected by: OfflinePayment-AlterCart-->
-<br /><br />
-				<b>Offline payment</b><br />
-				Click <a HREF="javascript:window.print()">here</a> to print this page. Then transfer the total value to this bank account: XXX-XX-XXX-XX and send us the previous printed page including the transaction confirmation.
-<!--Code injected by: OfflinePayment-AlterCart-->
 
 			</c:if>          
           </div>
