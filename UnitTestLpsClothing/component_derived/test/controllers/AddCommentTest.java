@@ -26,9 +26,9 @@ public class AddCommentTest {
 		Mockito.when(request.getParameter("product")).thenReturn("1");
 		Mockito.when(request.getParameter("description")).thenReturn("This is a comment description.");
 
-		AddComment addCommentServlet = new AddComment();
+		AddComment addCommentController = new AddComment();
 
-		addCommentServlet.doPost(request, response);
+		addCommentController.doPost(request, response);
 		//Mockito.verify(CommentDAO).insert(Mockito.any(Comment.class));
 
 		Mockito.verify(response).sendRedirect("Products?id=1");

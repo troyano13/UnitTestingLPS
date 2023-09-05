@@ -16,21 +16,21 @@ public class ContactTest {
     private HttpServletRequest request;
     private HttpServletResponse response;
     private RequestDispatcher requestDispatcher;
-    private Contact servlet;
+    private Contact contactController;
 
     @Before
     public void setUp() {
         request = Mockito.mock(HttpServletRequest.class);
         response = Mockito.mock(HttpServletResponse.class);
         requestDispatcher = Mockito.mock(RequestDispatcher.class);
-        servlet = new Contact();
+        contactController = new Contact();
     }
 
     @Test
     public void testDoGet() throws ServletException, IOException {
         Mockito.when(request.getRequestDispatcher("views/contact.jsp")).thenReturn(requestDispatcher);
 
-        servlet.doGet(request, response);
+        contactController.doGet(request, response);
 
         Mockito.verify(request).setAttribute("title", "Contact Us");
         Mockito.verify(requestDispatcher).forward(request, response);

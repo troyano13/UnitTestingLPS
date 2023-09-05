@@ -18,14 +18,14 @@ import models.User;
 
 public class HomeTest {
 
-    private Home homeServlet;
+    private Home homeController;
     private HttpServletRequest request;
     private HttpServletResponse response;
     private HttpSession session;
 
     @Before
     public void setUp() {
-        homeServlet = new Home();
+        homeController = new Home();
         request = mock(HttpServletRequest.class);
         response = mock(HttpServletResponse.class);
         session = mock(HttpSession.class);
@@ -42,7 +42,7 @@ public class HomeTest {
         RequestDispatcher dispatcher = mock(RequestDispatcher.class);
         when(request.getRequestDispatcher(anyString())).thenReturn(dispatcher);
 
-        homeServlet.doGet(request, response);
+        homeController.doGet(request, response);
 
         verify(request).setAttribute(eq("title"), eq("Admin Panel"));
         verify(dispatcher).forward(request, response);

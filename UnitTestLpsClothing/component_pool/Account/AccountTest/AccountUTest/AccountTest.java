@@ -18,14 +18,14 @@ import models.User;
 
 public class AccountTest {
 
-	private Account accountServlet;
+	private Account accountController;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	private HttpSession session;
 
 	@Before
 	public void setUp() {
-		accountServlet = new Account();
+		accountController = new Account();
 		request = mock(HttpServletRequest.class);
 		response = mock(HttpServletResponse.class);
 		session = mock(HttpSession.class);
@@ -41,7 +41,7 @@ public class AccountTest {
 		RequestDispatcher dispatcher = mock(RequestDispatcher.class);
 		when(request.getRequestDispatcher(anyString())).thenReturn(dispatcher);
 
-		accountServlet.doGet(request, response);
+		accountController.doGet(request, response);
 
 		verify(request).setAttribute(eq("title"), eq("Account"));
 		verify(request).setAttribute(eq("user"), eq(user));
