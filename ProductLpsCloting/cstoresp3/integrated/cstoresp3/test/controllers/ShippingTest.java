@@ -16,21 +16,21 @@ public class ShippingTest {
     private HttpServletRequest request;
     private HttpServletResponse response;
     private RequestDispatcher requestDispatcher;
-    private Shipping servlet;
+    private Shipping shippingController;
 
     @Before
     public void setUp() {
         request = Mockito.mock(HttpServletRequest.class);
         response = Mockito.mock(HttpServletResponse.class);
         requestDispatcher = Mockito.mock(RequestDispatcher.class);
-        servlet = new Shipping();
+        shippingController = new Shipping();
     }
 
     @Test
     public void testDoGet() throws ServletException, IOException {
         Mockito.when(request.getRequestDispatcher("views/shipping.jsp")).thenReturn(requestDispatcher);
 
-        servlet.doGet(request, response);
+        shippingController.doGet(request, response);
 
         Mockito.verify(request).setAttribute("title", "Shipping");
         Mockito.verify(requestDispatcher).forward(request, response);

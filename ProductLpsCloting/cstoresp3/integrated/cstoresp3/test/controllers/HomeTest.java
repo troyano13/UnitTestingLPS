@@ -15,21 +15,21 @@ public class HomeTest {
     private HttpServletRequest request;
     private HttpServletResponse response;
     private RequestDispatcher requestDispatcher;
-    private Home servlet;
+    private Home homeController;
 
     @Before
     public void setUp() {
         request = Mockito.mock(HttpServletRequest.class);
         response = Mockito.mock(HttpServletResponse.class);
         requestDispatcher = Mockito.mock(RequestDispatcher.class);
-        servlet = new Home();
+        homeController = new Home();
     }
 
     @Test
     public void testDoGet() throws ServletException, IOException {
         Mockito.when(request.getRequestDispatcher("views/index.jsp")).thenReturn(requestDispatcher);
 
-        servlet.doGet(request, response);
+        homeController.doGet(request, response);
 
         Mockito.verify(request).setAttribute("title", "cStores");
         Mockito.verify(requestDispatcher).forward(request, response);

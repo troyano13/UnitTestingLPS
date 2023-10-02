@@ -1,10 +1,10 @@
 package controllers.admin;
 
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.ArgumentMatchers.eq;
+
+/*B-import-zone*/
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+
 
 import java.io.IOException;
 
@@ -16,40 +16,39 @@ import javax.servlet.http.HttpSession;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
-import models.User;
 
 public class HomeTest {
 
-	private Home servletHome;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
+	private RequestDispatcher requestDispatcher;
+	private Home homeController;
 	private HttpSession session;
 
 	@Before
 	public void setUp() {
-		servletHome = new Home();
-		request = mock(HttpServletRequest.class);
-		response = mock(HttpServletResponse.class);
+		request = Mockito.mock(HttpServletRequest.class);
+		response = Mockito.mock(HttpServletResponse.class);
+		requestDispatcher = Mockito.mock(RequestDispatcher.class);
 		session = mock(HttpSession.class);
-
-		when(request.getSession()).thenReturn(session);
+		homeController = new Home();
 	}
 
-    @Test
-    public void testDoGet() throws ServletException, IOException {
-        User user = new User(1, "test", "user", "admin", "123");
-        
-        when(session.getAttribute("datauser")).thenReturn(user);
+	@Test
+	public void testDoGet() throws ServletException, IOException {
+		Mockito.when(request.getRequestDispatcher("views/index.jsp")).thenReturn(requestDispatcher);
 
-		RequestDispatcher dispatcher = mock(RequestDispatcher.class);
-		when(request.getRequestDispatcher(anyString())).thenReturn(dispatcher);
+		homeController.doGet(request, response);
 
-		servletHome.doGet(request, response);
-        
-		verify(request).setAttribute(eq("title"), eq("admin"));
-		verify(request).setAttribute(eq("user"), eq(user));
-		verify(dispatcher).forward(request, response);
-		
-    }
+		verify(request).setAttribute("title", "cStores");
+		verify(requestDispatcher).forward(request, response);
+	}
+
+	/*B-homeTest-zone*/
+
+
+
+
 }

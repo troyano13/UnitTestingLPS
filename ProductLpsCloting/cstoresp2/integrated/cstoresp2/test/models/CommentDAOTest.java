@@ -15,39 +15,39 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 public class CommentDAOTest {
-	
-	
 
-    @Mock
-    private Connection conn;
 
-    @Mock
-    private Statement statement;
 
-    @Mock
-    private ResultSet resultSet;
+	@Mock
+	private Connection conn;
 
-    private CommentDAO commentDAO;
+	@Mock
+	private Statement statement;
 
-    @Before
-    public void setUp() throws Exception {
-        MockitoAnnotations.openMocks(this);
+	@Mock
+	private ResultSet resultSet;
+	@Mock
+	private CommentDAO commentDAOController;
 
-        when(conn.createStatement()).thenReturn(statement);
-        when(statement.executeQuery(anyString())).thenReturn(resultSet);
+	@Before
+	public void setUp() throws Exception {
+		MockitoAnnotations.openMocks(this);
 
-        commentDAO = new CommentDAO();
-       // commentDAO.setConnection(conn);
-    }
+		when(conn.createStatement()).thenReturn(statement);
+		when(statement.executeQuery(anyString())).thenReturn(resultSet);
 
-    @Test
-    public void testGetCommentsByPID() throws Exception {
-        when(resultSet.next()).thenReturn(false);
+		commentDAOController = new CommentDAO();
 
-        ArrayList<Comment> comments = commentDAO.getCommentsByPID(1);
+	}
 
-        assertEquals(0, comments.size());
-    }
+	@Test
+	public void testGetCommentsByPID() throws Exception {
+		when(resultSet.next()).thenReturn(false);
+
+		ArrayList<Comment> comments = commentDAOController.getCommentsByPID(1);
+
+		assertEquals(0, comments.size());
+	}
 
 
 }

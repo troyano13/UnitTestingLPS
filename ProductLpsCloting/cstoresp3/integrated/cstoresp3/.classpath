@@ -16,5 +16,11 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Users/ferch/OneDrive/Documentos/AlexaProyecto/EAFIT_CODE/UnitTestingLPS/JarUnitTest/jstl-1.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ferch/OneDrive/Documentos/AlexaProyecto/EAFIT_CODE/UnitTestingLPS/JarUnitTest/mysql-connector-java-5.1.45.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ferch/OneDrive/Documentos/AlexaProyecto/EAFIT_CODE/UnitTestingLPS/JarUnitTest/byte-buddy-agent-1.14.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ferch/OneDrive/Documentos/AlexaProyecto/EAFIT_CODE/UnitTestingLPS/JarUnitTest/byte-buddy-1.14.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ferch/OneDrive/Documentos/AlexaProyecto/EAFIT_CODE/UnitTestingLPS/JarUnitTest/junit-4.13.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ferch/OneDrive/Documentos/AlexaProyecto/EAFIT_CODE/UnitTestingLPS/JarUnitTest/mockito-core-4.8.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ferch/OneDrive/Documentos/AlexaProyecto/EAFIT_CODE/UnitTestingLPS/JarUnitTest/objenesis-3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ferch/OneDrive/Documentos/AlexaProyecto/EAFIT_CODE/jrsClothing/hamcrest-core-1.3.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

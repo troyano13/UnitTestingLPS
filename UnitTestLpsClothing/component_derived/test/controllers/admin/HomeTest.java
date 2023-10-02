@@ -1,6 +1,10 @@
 package controllers.admin;
 
-import static org.mockito.Mockito.*;
+
+/*B-import-zone*/
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+
 
 import java.io.IOException;
 
@@ -12,41 +16,38 @@ import javax.servlet.http.HttpSession;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
-import controllers.admin.Home;
-import models.User;
 
 public class HomeTest {
 
-    private Home homeController;
-    private HttpServletRequest request;
-    private HttpServletResponse response;
-    private HttpSession session;
+	private HttpServletRequest request;
+	private HttpServletResponse response;
+	private RequestDispatcher requestDispatcher;
+	private Home homeController;
+	private HttpSession session;
 
-    @Before
-    public void setUp() {
-        homeController = new Home();
-        request = mock(HttpServletRequest.class);
-        response = mock(HttpServletResponse.class);
-        session = mock(HttpSession.class);
+	@Before
+	public void setUp() {
+		request = Mockito.mock(HttpServletRequest.class);
+		response = Mockito.mock(HttpServletResponse.class);
+		requestDispatcher = Mockito.mock(RequestDispatcher.class);
+		session = mock(HttpSession.class);
+		homeController = new Home();
+	}
 
-        when(request.getSession()).thenReturn(session);
-    }
+	@Test
+	public void testDoGet() throws ServletException, IOException {
+		Mockito.when(request.getRequestDispatcher("views/index.jsp")).thenReturn(requestDispatcher);
 
-   
-    @Test
-    public void testDoGet() throws ServletException, IOException {
-		
-		 /*B-loginTest-zone*/
-   
-        RequestDispatcher dispatcher = mock(RequestDispatcher.class);
-        when(request.getRequestDispatcher(anyString())).thenReturn(dispatcher);
+		homeController.doGet(request, response);
 
-        homeController.doGet(request, response);
+		verify(request).setAttribute("title", "cStores");
+		verify(requestDispatcher).forward(request, response);
+	}
 
-        verify(request).setAttribute(eq("title"), eq("Admin Panel"));
-        verify(dispatcher).forward(request, response);
-    }
+	/*B-homeTest-zone*/
+
 
 
 

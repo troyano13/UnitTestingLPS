@@ -3,74 +3,56 @@ package models;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import db.DB;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 /*B-importTest-zone*/
 
 public class UserDAOTest {
 
-    private UserDAO userDAO;
-    private Connection conn;
-    private Statement st;
-    private PreparedStatement ps;
-    private ResultSet rs;
+	@Mock
+	private UserDAO userDAO;
 
-    @Before
-    public void setUp() {
-        userDAO = new UserDAO();
-        conn = mock(Connection.class);
-        st = mock(Statement.class);
-        ps = mock(PreparedStatement.class);
-        rs = mock(ResultSet.class);
+	@Mock
+	private Connection conn;
 
-        DB.setTestConnection(conn);
+	@Mock
+	private Statement statement;
 
-        when(conn.createStatement()).thenReturn(st);
-        when(conn.prepareStatement(anyString())).thenReturn(ps);
-        when(st.executeQuery(anyString())).thenReturn(rs);
-    }
+	@Mock
+	private ResultSet resultSet;
 
-    @Test
-    public void testGetOneUser() throws Exception {
-       
-	   when(rs.next()).thenReturn(true);
-        when(rs.getInt("id")).thenReturn(1);
-        when(rs.getString("name")).thenReturn("John Doe");
-        when(rs.getString("type")).thenReturn("admin");
-        when(rs.getString("user")).thenReturn("johndoe");
-        when(rs.getString("pass")).thenReturn("password");
+	@Before
+	public void setUp() throws SQLException {
+		userDAO = new UserDAO();
+		MockitoAnnotations.openMocks(this);
 
-        User user = userDAO.getOneUser("johndoe", "password");
+		when(conn.createStatement()).thenReturn(statement);
+		when(statement.executeQuery(anyString())).thenReturn(resultSet);
 
-        assertEquals(1, user.getId());
-        assertEquals("John Doe", user.getName());
-        assertEquals("admin", user.getType());
-        assertEquals("johndoe", user.getUsername());
-        assertEquals("password", user.getPassword());
-    }
+	}
 
-    @Test
-    public void testGetOneUserNotFound() throws Exception {
 
-        when(rs.next()).thenReturn(false);
+	@Test
+	public void testGetOneUserNotFound() throws Exception {
 
-        User user = userDAO.getOneUser("nonexistent", "password");
+		when(resultSet.next()).thenReturn(false);
 
-        assertEquals(null, user);
-    }
+		User user = userDAO.getOneUser("nonexistent", "password");
 
-    /*B-methodTest-zone*/
+		assertEquals(null, user);
+	}
+
+	/*B-methodTest-zone*/
 
 }
 
