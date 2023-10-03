@@ -24,23 +24,6 @@ a:hover{
 
 /*B-lline*/
 
-/*Code injected by: ListOfProducts-AlterStyle*/
-.box_image{
-	padding: 30px;
-	text-align:center;
-}
-
-.pimage{
-	max-height:200px;
-}
-
-.caption{
-	text-align: center;
-	font-weight: bold;
-}
-/*Code injected by: ListOfProducts-AlterStyle*/
-
-
 /*Code injected by: Rating-AlterStyle2*/
 fieldset, label { margin: 0; padding: 0; }
 
@@ -77,3 +60,20 @@ fieldset, label { margin: 0; padding: 0; }
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
 .rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
 /*Code injected by: Rating-AlterStyle2*/
+
+
+/*Code injected by: ListOfProducts-AlterStyle*/
+.box_image{
+	padding: 30px;
+	text-align:center;
+}
+
+.pimage{
+	max-height:200px;
+}
+
+.caption{
+	text-align: center;
+	font-weight: bold;
+}
+/*Code injected by: ListOfProducts-AlterStyle*/
