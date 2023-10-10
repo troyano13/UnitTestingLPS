@@ -1,10 +1,6 @@
 package controllers.admin;
 
-
-/*B-import-zone*/
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-
+import static org.mockito.Mockito.*;
 
 import java.io.IOException;
 
@@ -16,38 +12,41 @@ import javax.servlet.http.HttpSession;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
+import controllers.admin.Home;
+import models.User;
 
 public class HomeTest {
 
-	private HttpServletRequest request;
-	private HttpServletResponse response;
-	private RequestDispatcher requestDispatcher;
-	private Home homeController;
-	private HttpSession session;
+    private Home homeController;
+    private HttpServletRequest request;
+    private HttpServletResponse response;
+    private HttpSession session;
 
-	@Before
-	public void setUp() {
-		request = Mockito.mock(HttpServletRequest.class);
-		response = Mockito.mock(HttpServletResponse.class);
-		requestDispatcher = Mockito.mock(RequestDispatcher.class);
-		session = mock(HttpSession.class);
-		homeController = new Home();
-	}
+    @Before
+    public void setUp() {
+        homeController = new Home();
+        request = mock(HttpServletRequest.class);
+        response = mock(HttpServletResponse.class);
+        session = mock(HttpSession.class);
 
-	@Test
-	public void testDoGet() throws ServletException, IOException {
-		Mockito.when(request.getRequestDispatcher("views/index.jsp")).thenReturn(requestDispatcher);
+        when(request.getSession()).thenReturn(session);
+    }
 
-		homeController.doGet(request, response);
+   
+    @Test
+    public void testDoGet() throws ServletException, IOException {
+		
+		 /*B-loginTest-zone*/
+   
+        RequestDispatcher dispatcher = mock(RequestDispatcher.class);
+        when(request.getRequestDispatcher(anyString())).thenReturn(dispatcher);
 
-		verify(request).setAttribute("title", "cStores");
-		verify(requestDispatcher).forward(request, response);
-	}
+        homeController.doGet(request, response);
 
-	/*B-homeTest-zone*/
-
+        verify(request).setAttribute(eq("title"), eq("Admin Panel"));
+        verify(dispatcher).forward(request, response);
+    }
 
 
 

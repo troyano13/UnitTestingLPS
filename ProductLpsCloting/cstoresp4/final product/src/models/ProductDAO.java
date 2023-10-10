@@ -54,6 +54,25 @@ public class ProductDAO {
 
 	/*B-method-zone*/
 
+/*Code injected by: Cart-AlterProductDAO*/
+public static ArrayList<Product> getProductsByIds(String ids){
+       ArrayList<Product> products = new ArrayList<Product>();
+       try {
+         conn = DB.getConexion();
+         st = conn.createStatement();
+           rs = st.executeQuery("SELECT * FROM product WHERE id IN ("+ids+");");
+           while (rs.next()) {
+            Product one_product = new Product(rs.getInt("id"),rs.getString("name"),rs.getInt("price"),rs.getString("img"));
+            products.add(one_product);
+           }
+           rs.close();
+       } catch (Exception e) { e.printStackTrace(); }
+
+       return products;
+   }
+/*Code injected by: Cart-AlterProductDAO*/
+
+
 /*Code injected by: Rating-AlterProductDAO2*/
 public static void updateRating(Product p){  
       try {
