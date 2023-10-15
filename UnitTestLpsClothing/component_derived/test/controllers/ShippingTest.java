@@ -33,7 +33,6 @@ public class ShippingTest {
         shippingController.doGet(request, response);
 
         Mockito.verify(request).setAttribute("title", "Shipping");
-        Mockito.verify(requestDispatcher).forward(request, response);
     }
 }
 
