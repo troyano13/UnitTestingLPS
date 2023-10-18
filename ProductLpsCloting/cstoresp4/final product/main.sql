@@ -13,6 +13,18 @@ CREATE TABLE IF NOT EXISTS `product` (
 /*Code injected by: ProductModel-AlterSQL*/
 
 
+/*Code injected by: Comments-AlterSQL*/
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE IF NOT EXISTS `comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product` int(11) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*Code injected by: Comments-AlterSQL*/
+
+
 /*Code injected by: UserModel-AlterSQL*/
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
@@ -24,18 +36,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*Code injected by: UserModel-AlterSQL*/
-
-
-/*Code injected by: Comments-AlterSQL*/
-DROP TABLE IF EXISTS `comment`;
-CREATE TABLE IF NOT EXISTS `comment` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `product` int(11) NOT NULL,
-  `description` varchar(100) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-/*Code injected by: Comments-AlterSQL*/
 
 
 

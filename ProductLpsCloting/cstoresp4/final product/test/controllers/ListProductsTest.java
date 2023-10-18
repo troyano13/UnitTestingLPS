@@ -73,8 +73,7 @@ public void testDoGetWithIdParameterProduct() throws ServletException, IOExcepti
     when(request.getRequestDispatcher("views/oneproduct.jsp")).thenReturn(requestDispatcher);
 
     Product mockedProduct = new Product(1, "Sample Product", "Sample Description", 100, "sample_image.jpg", 0, 0);
-
- mockStatic(ProductDAO.class);   when(ProductDAO.getProductByID(1)).thenReturn(mockedProduct);
+    when(ProductDAO.getProductByID(1)).thenReturn(mockedProduct);
 
     List<Comment> mockedComments = new ArrayList<>();
     mockedComments.add(new Comment(1, 1, "Comment 1", "2023-08-12"));
@@ -116,4 +115,10 @@ public void testDoGetWithIdParameterProduct() throws ServletException, IOExcepti
 		Mockito.verify(requestDispatcher).forward(request, response);
 	}
 	/*B-methodTest-zone*/
+
+/*Code injected by: Rating-AlterListProductsTest*/
+auqi va algo
+    }
+/*Code injected by: Rating-AlterListProductsTest*/
+
 }

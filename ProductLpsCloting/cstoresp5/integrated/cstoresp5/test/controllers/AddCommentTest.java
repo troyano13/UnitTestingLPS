@@ -29,8 +29,7 @@ public class AddCommentTest {
 		AddComment addCommentController = new AddComment();
 
 		addCommentController.doPost(request, response);
-		//Mockito.verify(CommentDAO).insert(Mockito.any(Comment.class));
-
+		
 		Mockito.verify(response).sendRedirect("Products?id=1");
 	}
 }
