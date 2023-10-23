@@ -22,7 +22,7 @@ public class Account extends HttpServlet {
     	
 		request.setAttribute("title", "Account");
 		request.setAttribute("user", u);
-        RequestDispatcher view = request.getRequestDispatcher("views/account.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/account.jsp");
         view.forward(request, response);    	 
     }
 }

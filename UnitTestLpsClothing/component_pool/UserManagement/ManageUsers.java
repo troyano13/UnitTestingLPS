@@ -29,7 +29,7 @@ public class ManageUsers  extends HttpServlet {
     	
     	request.setAttribute("users",UserDAO.getUsers());
     	request.setAttribute("title", "Admin Panel - Users");
-        RequestDispatcher view = request.getRequestDispatcher("../views/admin/users.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("../admin/users.jsp");
         view.forward(request, response);
     }
 	

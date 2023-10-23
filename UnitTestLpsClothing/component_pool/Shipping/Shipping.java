@@ -16,7 +16,7 @@ public class Shipping extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 		request.setAttribute("title", "Shipping");
-        RequestDispatcher view = request.getRequestDispatcher("views/shipping.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/shipping.jsp");
         view.forward(request, response);    	 
     }
 

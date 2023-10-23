@@ -32,7 +32,7 @@ public class Login extends HttpServlet {
 		}
 		else {
 			request.setAttribute("title", "Login");
-			RequestDispatcher view = request.getRequestDispatcher("views/login_form.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("/login_form.jsp");
 			view.forward(request, response);
 		}
 	}

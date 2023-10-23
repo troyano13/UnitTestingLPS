@@ -29,7 +29,7 @@ public class ManageProducts extends HttpServlet {
     	
     	request.setAttribute("products",ProductDAO.getProducts());
     	request.setAttribute("title", "Admin Panel - Products");
-        RequestDispatcher view = request.getRequestDispatcher("../views/admin/products.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("../admin/products.jsp");
         view.forward(request, response);
     }
 	

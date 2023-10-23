@@ -30,7 +30,7 @@ public class ManageComment  extends HttpServlet {
     	
     	request.setAttribute("comments",CommentDAO.getComments());
     	request.setAttribute("title", "Admin Panel - Comments");
-        RequestDispatcher view = request.getRequestDispatcher("../views/admin/comments.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("../admin/comments.jsp");
         view.forward(request, response);
     }
 	
