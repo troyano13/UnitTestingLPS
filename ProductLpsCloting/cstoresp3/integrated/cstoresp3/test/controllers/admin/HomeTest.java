@@ -38,7 +38,7 @@ public class HomeTest {
 
 	@Test
 	public void testDoGet() throws ServletException, IOException {
-		Mockito.when(request.getRequestDispatcher("views/index.jsp")).thenReturn(requestDispatcher);
+		Mockito.when(request.getRequestDispatcher("/index.jsp")).thenReturn(requestDispatcher);
 
 		homeController.doGet(request, response);
 

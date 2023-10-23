@@ -39,7 +39,7 @@ HttpSession session = request.getSession();
     	
     	request.setAttribute("products",ProductDAO.getProducts());
     	request.setAttribute("title", "Admin Panel - Products");
-        RequestDispatcher view = request.getRequestDispatcher("../views/admin/products.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("../admin/products.jsp");
         view.forward(request, response);
     }
 	
@@ -50,7 +50,17 @@ HttpSession session = request.getSession();
 		String price = request.getParameter("price");
 		String img = request.getParameter("img");
 		
-		Product p = new Product(name,desc,Integer.parseInt(price),img,0,0);
+		Product p = new Product(name,desc,Integer.parseInt(price),img/*B-constructor-attribute-zone*/
+
+/*Code injected by: Rating-AlterManageProducts*/
+,0,0
+/*Code injected by: Rating-AlterManageProducts*/
+
+
+/*Code injected by: Rating-AlterManageProducts*/
+,0,0
+/*Code injected by: Rating-AlterManageProducts*/
+);
 		ProductDAO.insert(p);
 		response.sendRedirect("Products");
 	}

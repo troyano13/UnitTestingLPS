@@ -32,7 +32,7 @@ HttpSession session = request.getSession();
 
         
         request.setAttribute("title", "Admin Panel");
-        RequestDispatcher view = request.getRequestDispatcher("../views/admin/index.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("../admin/index.jsp");
         view.forward(request, response);  
     }
 }

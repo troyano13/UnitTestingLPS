@@ -16,7 +16,7 @@ public class Contact extends HttpServlet {
 	    protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	            throws ServletException, IOException {
 	    	request.setAttribute("title", "Contact Us");
-	        RequestDispatcher view = request.getRequestDispatcher("views/contact.jsp");
+	        RequestDispatcher view = request.getRequestDispatcher("/contact.jsp");
 	        view.forward(request, response);  
 	    }
 

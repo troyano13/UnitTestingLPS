@@ -38,7 +38,8 @@ public class ListProductsTest {
 	@Test
 	public void testDoGetWithIdParameter() throws ServletException, IOException {
 		when(request.getParameter("id")).thenReturn("1");
-		Mockito.when(request.getRequestDispatcher("views/oneproduct.jsp")).thenReturn(requestDispatcher);
+
+		Mockito.when(request.getRequestDispatcher("/oneproduct.jsp")).thenReturn(requestDispatcher);
 
 		Product mockedProduct = new Product(1, "Sample Product", 10, "Description");
 
@@ -61,7 +62,7 @@ public class ListProductsTest {
 	@Test
 	public void testDoGetWithoutIdParameter() throws ServletException, IOException {
 		Mockito.when(request.getParameter("id")).thenReturn(null);
-		Mockito.when(request.getRequestDispatcher("views/listproducts.jsp")).thenReturn(requestDispatcher);
+		Mockito.when(request.getRequestDispatcher("/listproducts.jsp")).thenReturn(requestDispatcher);
 
 		List<Product> mockedProducts = new ArrayList<>();
 		mockedProducts.add(new Product(1, "Product 1", 10, "Description 1"));

@@ -40,13 +40,13 @@ request.setAttribute("comments",CommentDAO.getCommentsByPID(Integer.parseInt(id)
             request.setAttribute("title", pro.getName());
             request.setAttribute("pro",pro);
             request.setAttribute("id",id);
-            view = request.getRequestDispatcher("views/oneproduct.jsp");
+            view = request.getRequestDispatcher("/oneproduct.jsp");
     		
     	}else{     
             request.setAttribute("title", "Products");      
             request.setAttribute("products",ProductDAO.getProducts());
     
-            view = request.getRequestDispatcher("views/listproducts.jsp");
+            view = request.getRequestDispatcher("/listproducts.jsp");
         }
         view.forward(request, response);  
     }

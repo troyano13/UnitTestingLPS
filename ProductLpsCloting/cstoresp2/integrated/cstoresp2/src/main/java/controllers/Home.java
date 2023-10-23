@@ -15,7 +15,7 @@ public class Home extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	request.setAttribute("title", "cStores");
-        RequestDispatcher view = request.getRequestDispatcher("views/index.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/index.jsp");
         view.forward(request, response);  
     }
 }
