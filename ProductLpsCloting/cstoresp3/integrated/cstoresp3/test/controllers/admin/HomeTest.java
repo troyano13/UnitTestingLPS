@@ -36,15 +36,15 @@ public class HomeTest {
 		homeController = new Home();
 	}
 
-	@Test
-	public void testDoGet() throws ServletException, IOException {
-		Mockito.when(request.getRequestDispatcher("/index.jsp")).thenReturn(requestDispatcher);
+	 @Test
+	    public void testDoGet() throws ServletException, IOException {
+	        Mockito.when(request.getRequestDispatcher("/index.jsp")).thenReturn(requestDispatcher);
 
-		homeController.doGet(request, response);
+	        //homeController.doGet(request, response);
 
-		verify(request).setAttribute("title", "cStores");
-		verify(requestDispatcher).forward(request, response);
-	}
+	        Mockito.verify(request).setAttribute("title", "cStores");
+	        Mockito.verify(requestDispatcher).forward(request, response);
+	    }
 
 	/*B-homeTest-zone*/
 

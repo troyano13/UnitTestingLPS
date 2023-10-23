@@ -36,13 +36,6 @@
            </li>
 <!--Code injected by: CommentManagement-AlterAdminHeader-->
 
-
-<!--Code injected by: UserManagement-AlterAdminHeader-->
-<li>
-            <a class="nav-link" href="<c:url value='Users'/>">Manage Users</a>
-           </li>
-<!--Code injected by: UserManagement-AlterAdminHeader-->
-
           
          </ul>
       </div>

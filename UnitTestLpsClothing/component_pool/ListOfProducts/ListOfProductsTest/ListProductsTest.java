@@ -16,7 +16,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import models.CommentDAO;
+
 import models.Product;
 import models.ProductDAO;
 /*B-importTest-zone*/
@@ -46,8 +46,6 @@ public class ListProductsTest {
 		mockStatic(ProductDAO.class);
 		when(ProductDAO.getProductByID(1)).thenReturn(mockedProduct);
 
-		CommentDAO commentDAO = Mockito.mock(CommentDAO.class);
-
 		ListProducts listProductsServlet = new ListProducts();
 		listProductsServlet.init();
 		listProductsServlet.doGet(request, response);
@@ -70,8 +68,6 @@ public class ListProductsTest {
 
 		ProductDAO productDAO = Mockito.mock(ProductDAO.class);
 		Mockito.when(productDAO.getProducts()).thenReturn((ArrayList<Product>) mockedProducts);
-
-		CommentDAO commentDAO = Mockito.mock(CommentDAO.class);
 
 		ListProducts listProductsServlet = new ListProducts();
 		listProductsServlet.init();

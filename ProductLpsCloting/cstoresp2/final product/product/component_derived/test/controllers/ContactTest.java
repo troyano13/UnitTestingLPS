@@ -28,7 +28,7 @@ public class ContactTest {
 
     @Test
     public void testDoGet() throws ServletException, IOException {
-        Mockito.when(request.getRequestDispatcher("views/contact.jsp")).thenReturn(requestDispatcher);
+        Mockito.when(request.getRequestDispatcher("/contact.jsp")).thenReturn(requestDispatcher);
 
         contactController.doGet(request, response);
 

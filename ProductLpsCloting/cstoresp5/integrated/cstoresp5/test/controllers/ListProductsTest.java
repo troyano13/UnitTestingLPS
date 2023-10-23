@@ -46,6 +46,7 @@ public class ListProductsTest {
 	@Test
 	public void testDoGetWithIdParameter() throws ServletException, IOException {
 		when(request.getParameter("id")).thenReturn("1");
+		
 		Mockito.when(request.getRequestDispatcher("views/oneproduct.jsp")).thenReturn(requestDispatcher);
 
 		Product mockedProduct = new Product(1, "Sample Product", 10, "Description");

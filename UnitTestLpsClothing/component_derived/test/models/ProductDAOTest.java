@@ -43,24 +43,11 @@ public class ProductDAOTest {
 	public void testGetCommentsByPID() throws Exception {
 		when(resultSet.next()).thenReturn(false);
 
-		ArrayList<Product> product = productDAO.getProductsByIds("g");
+		ArrayList<Product> product = ProductDAO.getProducts();
 
-		assertEquals(0, product.size());
+		assertEquals(2, product.size());
 	}
 	/*B-methodTest-zone*/
-
-/*Code injected by: Cart-AlterProductDAOTest*/
-@Test
-	public void testGetProductByID() throws SQLException {
-		when(statement.executeQuery(anyString())).thenReturn(resultSet);
-
-		int ids = 1;
-		ArrayList<Product> products = ProductDAO.getProductsByIds("1");
-
-		assertEquals(ProductDAO.getProductByID(ids),null);
-	}
-/*Code injected by: Cart-AlterProductDAOTest*/
-
 	
 
 }

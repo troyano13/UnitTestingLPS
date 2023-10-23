@@ -32,26 +32,12 @@
 				   </c:when>    
     			 <c:otherwise>
 		          <!--B-menu-modificator-login-->
-
-<!--Code injected by: Account-AlterHeader-->
-<li>
-		            <a class="nav-link" href="<c:url value='Account'/>">Account</a>
-		           </li>
-<!--Code injected by: Account-AlterHeader-->
-
     			    <li>
 	            <a class="nav-link" href="<c:url value='Login?logout=1'/>">Logout</a>
 	            </li>
            </c:otherwise>
 			     </c:choose>
 <!--Code injected by: Login-AlterHeader-->
-
-
-<!--Code injected by: Cart-AlterHeader-->
-<li>
-            <a class="nav-link" href="<c:url value='Cart'/>">Cart</a>
-           </li>
-<!--Code injected by: Cart-AlterHeader-->
 
 
 <!--Code injected by: ListOfProducts-AlterHeader-->

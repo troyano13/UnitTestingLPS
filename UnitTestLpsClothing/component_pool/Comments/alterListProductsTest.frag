@@ -19,9 +19,9 @@ Fragment Comments-AlterListProductsTest2 {
    SourceCode: [ALTERCODE-FRAG]@Test
 public void testDoGetWithIdParameterProduct() throws ServletException, IOException {
     when(request.getParameter("id")).thenReturn("1");
-    when(request.getRequestDispatcher("views/oneproduct.jsp")).thenReturn(requestDispatcher);
+    when(request.getRequestDispatcher("/oneproduct.jsp")).thenReturn(requestDispatcher);
 
-    Product mockedProduct = new Product(1, "Sample Product", "Sample Description", 100, "sample_image.jpg", 0, 0);
+      Product mockedProduct = new Product(1, "Sample Product", 100, "sample_image.jpg");
 
 
     List<Comment> mockedComments = new ArrayList<>();
@@ -32,7 +32,7 @@ public void testDoGetWithIdParameterProduct() throws ServletException, IOExcepti
     listProductsServlet.doGet(request, response);
 
    
-// verify(request).setAttribute("title", "Sample Product");
+    verify(request).setAttribute("title", "Sample Product");
     
 }[/ALTERCODE-FRAG]
 }

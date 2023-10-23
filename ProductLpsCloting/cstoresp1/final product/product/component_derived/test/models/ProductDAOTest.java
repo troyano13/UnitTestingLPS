@@ -43,7 +43,7 @@ public class ProductDAOTest {
 	public void testGetCommentsByPID() throws Exception {
 		when(resultSet.next()).thenReturn(false);
 
-		ArrayList<Product> product = productDAO.getProductsByIds("g");
+		ArrayList<Product> product = ProductDAO.getProducts();
 
 		assertEquals(0, product.size());
 	}

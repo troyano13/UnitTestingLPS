@@ -16,7 +16,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import models.CommentDAO;
+
 import models.Product;
 import models.ProductDAO;
 /*B-importTest-zone*/
@@ -54,8 +54,6 @@ public class ListProductsTest {
 		mockStatic(ProductDAO.class);
 		when(ProductDAO.getProductByID(1)).thenReturn(mockedProduct);
 
-		CommentDAO commentDAO = Mockito.mock(CommentDAO.class);
-
 		ListProducts listProductsServlet = new ListProducts();
 		listProductsServlet.init();
 		listProductsServlet.doGet(request, response);
@@ -71,9 +69,9 @@ public class ListProductsTest {
 @Test
 public void testDoGetWithIdParameterProduct() throws ServletException, IOException {
     when(request.getParameter("id")).thenReturn("1");
-    when(request.getRequestDispatcher("views/oneproduct.jsp")).thenReturn(requestDispatcher);
+    when(request.getRequestDispatcher("/oneproduct.jsp")).thenReturn(requestDispatcher);
 
-    Product mockedProduct = new Product(1, "Sample Product", "Sample Description", 100, "sample_image.jpg", 0, 0);
+      Product mockedProduct = new Product(1, "Sample Product", 100, "sample_image.jpg");
 
 
     List<Comment> mockedComments = new ArrayList<>();
@@ -84,7 +82,7 @@ public void testDoGetWithIdParameterProduct() throws ServletException, IOExcepti
     listProductsServlet.doGet(request, response);
 
    
-// verify(request).setAttribute("title", "Sample Product");
+    verify(request).setAttribute("title", "Sample Product");
     
 }
 /*Code injected by: Comments-AlterListProductsTest2*/
@@ -101,8 +99,6 @@ public void testDoGetWithIdParameterProduct() throws ServletException, IOExcepti
 
 		ProductDAO productDAO = Mockito.mock(ProductDAO.class);
 		Mockito.when(productDAO.getProducts()).thenReturn((ArrayList<Product>) mockedProducts);
-
-		CommentDAO commentDAO = Mockito.mock(CommentDAO.class);
 
 		ListProducts listProductsServlet = new ListProducts();
 		listProductsServlet.init();
