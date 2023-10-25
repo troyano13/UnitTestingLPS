@@ -7,19 +7,8 @@ public class Product {
 	private int price;
 	private String img;
 	/*B-attribute-zone*/
-
-/*Code injected by: Rating-AlterProduct*/
-private int num_rates;
-	private int total_rates;
-/*Code injected by: Rating-AlterProduct*/
-
 	
-	public Product(int id, String name, String description, int price, String img /*B-constructor-attribute-zone*/
-
-/*Code injected by: Rating-AlterProduct2*/
-, int num_rates, int total_rates
-/*Code injected by: Rating-AlterProduct2*/
-) {
+	public Product(int id, String name, String description, int price, String img /*B-constructor-attribute-zone*/) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -27,32 +16,15 @@ private int num_rates;
 		this.price = price;
 		this.img = img;
 		/*B-constructor-inside-zone*/
-
-/*Code injected by: Rating-AlterProduct3*/
-this.num_rates = num_rates;
-		this.total_rates = total_rates;
-/*Code injected by: Rating-AlterProduct3*/
-
 	}
 	
-	public Product(String name, String description, int price, String img /*B-constructor-attribute-zone2*/
-
-/*Code injected by: Rating-AlterProduct2*/
-, int num_rates, int total_rates
-/*Code injected by: Rating-AlterProduct2*/
-) {
+	public Product(String name, String description, int price, String img /*B-constructor-attribute-zone2*/) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.price = price;
 		this.img = img;
 		/*B-constructor-inside-zone2*/
-
-/*Code injected by: Rating-AlterProduct3*/
-this.num_rates = num_rates;
-		this.total_rates = total_rates;
-/*Code injected by: Rating-AlterProduct3*/
-
 	}
 
 	public Product(int id, String name, int price, String img) {
@@ -104,29 +76,5 @@ this.num_rates = num_rates;
 	}
 
 	/*B-method-zone*/
-
-/*Code injected by: Rating-AlterProduct4*/
-public int getNum_rates() {
-		return num_rates;
-	}
-
-	public void setNum_rates(int num_rates) {
-		this.num_rates = num_rates;
-	}
-
-	public int getTotal_rates() {
-		return total_rates;
-	}
-
-	public void setTotal_rates(int total_rates) {
-		this.total_rates = total_rates;
-	}
-	
-	public int getRate() {
-		if(num_rates==0){return 0;}
-		return total_rates/num_rates;
-	}
-/*Code injected by: Rating-AlterProduct4*/
-
 
 }

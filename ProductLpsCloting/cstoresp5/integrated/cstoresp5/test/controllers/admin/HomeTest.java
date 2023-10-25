@@ -3,13 +3,11 @@ package controllers.admin;
 
 /*B-import-zone*/
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
-
-
-import java.io.IOException;
+import static org.mockito.Mockito.when;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,6 +15,8 @@ import javax.servlet.http.HttpSession;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
+
+import models.User;
 
 
 public class HomeTest {
@@ -36,19 +36,23 @@ public class HomeTest {
 		homeController = new Home();
 	}
 
-	@Test
-	public void testDoGet() throws ServletException, IOException {
-		Mockito.when(request.getRequestDispatcher("views/index.jsp")).thenReturn(requestDispatcher);
-
-		//homeController.doGet(request, response);
-
-		//verify(request).setAttribute("title", "cStores");
-		//verify(requestDispatcher).forward(request, response);
-	}
-
 	/*B-homeTest-zone*/
 
 
+	@Test
+	public void testDoGeft() throws Exception {
+		Home homeServlet = new Home(); 
 
+		when(request.getSession()).thenReturn(session);
+		when(session.getAttribute("datauser")).thenReturn(new User(0, "admin", "admin", null, null));
+		when(request.getRequestDispatcher("../admin/index.jsp")).thenReturn(requestDispatcher);
+
+		homeServlet.doGet(request, response);
+
+		verify(request).setAttribute("title", "Admin Panel");
+		verify(requestDispatcher).forward(request, response);
+
+		verify(response, never()).sendRedirect("../Home");
+	}
 
 }

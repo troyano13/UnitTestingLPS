@@ -35,7 +35,6 @@ public class ManageCommentTest {
 
 		Mockito.verify(request).getParameter("product");
 		Mockito.verify(request).getParameter("description");
-		//  Mockito.verify(CommentDAO.class).insert(Mockito.any(Comment.class));
 		Mockito.verify(response).sendRedirect("Comments");
 	}
 }

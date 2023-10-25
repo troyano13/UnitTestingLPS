@@ -58,20 +58,6 @@ public class LoginTest {
 		verify(response).sendRedirect(eq("Home"));
 	}
 
-	@Test
-	public void testDoPost() throws ServletException, IOException {
-		Map<Integer, String> pincart = new HashMap<>();
-		when(session.getAttribute("pincart")).thenReturn(pincart);
-
-		when(request.getParameter("user")).thenReturn("testuser");
-		when(request.getParameter("pass")).thenReturn("testpass");
-
-		loginController.doPost(request, response);
-		//verify(session).setAttribute("datauser", user);
-		
-	}
-
-
 
 
 }

@@ -1,21 +1,27 @@
-Fragment Comments-AlterListProductsTest { 
+Fragment Rating-AlterListProducts { 
+  
+
+}
+
+Fragment Rating-AlterListProductsTest { 
    Action: add
    Priority: high
    FragmentationPoints: importTest-zone
    PointBracketsLan: java
-   Destinations: ListOfProducts-ListProductsTest
-   SourceCode: [ALTERCODE-FRAG]
-import models.ProductDAO;
- [/ALTERCODE-FRAG]
+   Destinations: ListOfProducts-ListOfProductsTest
+   SourceCode: [ALTERCODE-FRAG]import models.ProductDAO;
+
+[/ALTERCODE-FRAG]
 }
 
-Fragment Comments-AlterListProductsTest2 { 
+Fragment Rating-AlterListProductsTest1 { 
    Action: add
    Priority: high
-   FragmentationPoints: oneproductTest-zone
+   FragmentationPoints: twoproductTest-zone
    PointBracketsLan: java
-   Destinations: ListOfProducts-ListProductsTest
-   SourceCode: [ALTERCODE-FRAG]@Test
+   Destinations: ListOfProducts-ListOfProductsTest
+   SourceCode: [ALTERCODE-FRAG] 
+@Test
 	public void testDoGetComments() throws ServletException, IOException {
 
 		Mockito.when(request.getRequestDispatcher("/listproducts.jsp")).thenReturn(requestDispatcher);
@@ -24,5 +30,6 @@ Fragment Comments-AlterListProductsTest2 {
 
 		Mockito.verify(request).setAttribute("title", "Products");
 	}
+
 [/ALTERCODE-FRAG]
 }

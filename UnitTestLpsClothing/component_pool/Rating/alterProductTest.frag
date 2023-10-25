@@ -9,6 +9,7 @@ Fragment Rating-AlterProductTest {
 [/ALTERCODE-FRAG]
 }
 
+
 Fragment Rating-AlterProductTest2 { 
    Action: add
    Priority: high

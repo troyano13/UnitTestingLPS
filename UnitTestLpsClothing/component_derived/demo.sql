@@ -6,18 +6,3 @@ INSERT INTO `product` (`id`, `name`, `description`, `price`, `img`) VALUES
 (5, 'Fashion Royal Blue Slim Fit Elbow Patches', 'test', 100, 'https://www.mensitaly.com/images/Royal-Blue-Slim-Fit-Blazer-37497.jpg');
 
 /*B-lline*/
-
-/*Code injected by: UserModel-AlterSQL*/
-INSERT INTO `user` (`id`, `name`, `type`, `user`, `pass`) VALUES
-(1, 'Daniel Correa', 'admin', 'daniel', 'daniel'),
-(2, 'Raúl Mazo', 'user', 'raul', 'raul'),
-(3, 'Gloria Lucia', 'user', 'gloria', 'gloria');
-/*Code injected by: UserModel-AlterSQL*/
-
-
-/*Code injected by: Comments-AlterSQL*/
-INSERT INTO `comment` (`id`, `product`, `description`, `date`) VALUES
-(1, 1, 'Best product in the world', '2018-02-24 23:04:30'),
-(2, 1, 'This suit is awesome', '2018-02-24 23:11:44'),
-(4, 3, 'Great product', '2018-02-25 13:06:44');
-/*Code injected by: Comments-AlterSQL*/

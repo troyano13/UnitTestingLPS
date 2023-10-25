@@ -28,7 +28,7 @@ public class ShippingTest {
 
     @Test
     public void testDoGet() throws ServletException, IOException {
-        Mockito.when(request.getRequestDispatcher("views/shipping.jsp")).thenReturn(requestDispatcher);
+        Mockito.when(request.getRequestDispatcher("/shipping.jsp")).thenReturn(requestDispatcher);
 
         shippingController.doGet(request, response);
 

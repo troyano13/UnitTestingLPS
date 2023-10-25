@@ -23,42 +23,11 @@
           </li>
           <!--B-menu-modificator-->
 
-<!--Code injected by: Login-AlterHeader-->
-<c:choose>
-    			 <c:when test="${sessionScope.logged != '1'}">
-    			    <li>
-	            <a class="nav-link" href="<c:url value='Login'/>">Login</a>
-	            </li>
-				   </c:when>    
-    			 <c:otherwise>
-		          <!--B-menu-modificator-login-->
-    			    <li>
-	            <a class="nav-link" href="<c:url value='Login?logout=1'/>">Logout</a>
-	            </li>
-           </c:otherwise>
-			     </c:choose>
-<!--Code injected by: Login-AlterHeader-->
-
-
 <!--Code injected by: ListOfProducts-AlterHeader-->
 <li>
             <a class="nav-link" href="<c:url value='Products'/>">Products</a>
            </li>
 <!--Code injected by: ListOfProducts-AlterHeader-->
-
-
-<!--Code injected by: ListOfProducts-AlterHeader-->
-<li>
-            <a class="nav-link" href="<c:url value='Contact'/>">Contact Us</a>
-           </li>
-<!--Code injected by: ListOfProducts-AlterHeader-->
-
-
-<!--Code injected by: Shipping-AlterHeader-->
-<li>
-            <a class="nav-link" href="<c:url value='Shipping'/>">Shipping</a>
-           </li>
-<!--Code injected by: Shipping-AlterHeader-->
 
 
         </ul>

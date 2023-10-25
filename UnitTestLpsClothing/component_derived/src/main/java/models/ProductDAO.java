@@ -18,12 +18,7 @@ public class ProductDAO {
 	    	st = conn.createStatement();
 	    	rs = st.executeQuery("SELECT * FROM product WHERE id = '"+id+"'");
 	        while (rs.next()) {
-	        	pro = new Product(rs.getInt("id"),rs.getString("name"),rs.getString("description"),rs.getInt("price"),rs.getString("img")/*B-constructor-attribute-zone*/
-
-/*Code injected by: Rating-AlterProductDAO*/
-,rs.getInt("num_rates"),rs.getInt("total_rates")
-/*Code injected by: Rating-AlterProductDAO*/
-);
+	        	pro = new Product(rs.getInt("id"),rs.getString("name"),rs.getString("description"),rs.getInt("price"),rs.getString("img")/*B-constructor-attribute-zone*/);
 	        }
 	        rs.close();
 	    } catch (Exception e) { e.printStackTrace(); }		
@@ -38,12 +33,7 @@ public class ProductDAO {
 	        String s = "SELECT * FROM product";
 	        rs = st.executeQuery(s);
 	        while (rs.next()) {
-	        	Product one_product = new Product(rs.getInt("id"),rs.getString("name"),rs.getString("description"),rs.getInt("price"),rs.getString("img")/*B-constructor-attribute-zone2*/
-
-/*Code injected by: Rating-AlterProductDAO*/
-,rs.getInt("num_rates"),rs.getInt("total_rates")
-/*Code injected by: Rating-AlterProductDAO*/
-);
+	        	Product one_product = new Product(rs.getInt("id"),rs.getString("name"),rs.getString("description"),rs.getInt("price"),rs.getString("img")/*B-constructor-attribute-zone2*/);
 	        	products.add(one_product);
 	        }
 	        rs.close();
@@ -53,51 +43,5 @@ public class ProductDAO {
 	}
 
 	/*B-method-zone*/
-
-/*Code injected by: Rating-AlterProductDAO2*/
-public static void updateRating(Product p){  
-      try {
-         conn = DB.getConexion();
-         
-         st = conn.createStatement();
-         st.executeUpdate("UPDATE product set "
-               + " total_rates='"+p.getTotal_rates()+"',"
-               + " num_rates='"+p.getNum_rates()+"'"
-               + "  WHERE id = '"+p.getId()+"';");    
-      }
-      catch(Exception e){  e.printStackTrace(); }
-      finally{
-         try { rs.close(); } catch (Exception e) { e.printStackTrace(); }
-      }
-   }
-/*Code injected by: Rating-AlterProductDAO2*/
-
-
-/*Code injected by: ProductManagement-AlterProductDAO*/
-public static void remove(int id){  
-    try {
-      conn = DB.getConexion();      
-      st = conn.createStatement();
-        st.executeUpdate("DELETE from product WHERE id ='"+id+"';");  
-    }
-    catch(Exception e){ e.printStackTrace(); }
-    finally{
-      try { rs.close(); } catch (Exception e) { e.printStackTrace(); }
-    }
-  }
-  
-  public static void insert(Product p){  
-    try {
-      conn = DB.getConexion();      
-      st = conn.createStatement();
-        st.executeUpdate("INSERT INTO product (name, description, price, img) VALUES ('"+p.getName()+"', '"+p.getDescription()+"', '"+p.getPrice()+"', '"+p.getImg()+"');");    
-    }
-    catch(Exception e){ e.printStackTrace(); }
-    finally{
-      try { rs.close(); } catch (Exception e) { e.printStackTrace(); }
-    }
-  }
-/*Code injected by: ProductManagement-AlterProductDAO*/
-
 
 }

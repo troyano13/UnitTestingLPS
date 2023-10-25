@@ -58,8 +58,6 @@ HttpSession session = request.getSession();
 
 
 /*Code injected by: Rating-AlterManageProducts*/
-,0,0
-/*Code injected by: Rating-AlterManageProducts*/
 );
 		ProductDAO.insert(p);
 		response.sendRedirect("Products");
